@@ -1,0 +1,20 @@
+This README file contains information on the contents of the
+data-smaai5 layer.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+This layer depends on:
+
+  URI: git://git.openembedded.org/bitbake
+  branch: 1.36
+
+  URI: git://git.openembedded.org/openembedded-core
+  layers: meta
+  branch: rocko
+
+  URI: git://git.openembedded.org/meta-openembedded
+  layers: meta-oe
+  branch: rocko
