@@ -42,6 +42,7 @@ PYTHON_PKGS = " \
 
 CORE_IMAGE_EXTRA_INSTALL += " \
     smaai5-base \
+    packagegroup-smaai5 \
     \
     beaglebone-capes \
     connman-client \
