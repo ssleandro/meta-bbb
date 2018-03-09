@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 inherit core-image extrausers
 
-EXTRA_IMAGE_FEATURES += "package-management ssh-server-openssh"
+IMAGE_FEATURES += "package-management ssh-server-openssh"
 
 PYTHON_PKGS = " \
     python-dbus \
