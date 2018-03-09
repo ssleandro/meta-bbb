@@ -22,9 +22,5 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     udisks \
 "
 
-# Add user inobram with password inobram
-# Set root password to root
-EXTRA_USERS_PARAMS += " \
-    useradd -G adm,dialout,cdrom,sudo,audio,video,plugdev,games,users,netdev,input -P %inobram! inobram; \
-    usermod -P %inobram! root; \
-"
+SMAAI5_PASSWORD = "\$1\$HFywRhHs\$hIAml7WzX1NqRTfUN7Yop/"
+EXTRA_USERS_PARAMS = "usermod -p '${SMAAI5_PASSWORD}' inobram;"
