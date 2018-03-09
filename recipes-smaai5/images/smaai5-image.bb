@@ -41,6 +41,8 @@ PYTHON_PKGS = " \
 "
 
 CORE_IMAGE_EXTRA_INSTALL += " \
+    smaai5-base \
+    \
     beaglebone-capes \
     connman-client \
     gadget-init \
