@@ -18,4 +18,3 @@ do_install_append() {
 FILES_${PN} += "${nonarch_base_libdir}/firmware/*"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-COMPATIBLE_MACHINE = "(beaglebone)"
