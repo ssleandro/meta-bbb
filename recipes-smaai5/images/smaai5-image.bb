@@ -13,6 +13,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     beaglebone-capes \
     beaglebone-universal-io \
     connman-client \
+    device-tree-overlays \
     i2c-tools \
     nfs-utils-client \
     nmap \
