@@ -11,6 +11,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-smaai5 \
     \
     beaglebone-capes \
+    beaglebone-universal-io \
     connman-client \
     i2c-tools \
     nfs-utils-client \
