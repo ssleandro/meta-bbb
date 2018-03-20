@@ -17,6 +17,7 @@ do_compile[noexec] = "1"
 do_install() {
     cp -r ${S}/${BPN}/*  ${D}/
     rm -rf ${D}${localstatedir}/run
+    chmod -R 0644 ${D}
     find ${D} -type f ! -type l -exec chmod -R 0755 ${D}${libdir}/${BPN} {} +
     find ${D} -type f ! -type l -exec chmod -R 0755 ${D}${bindir} {} +
 }
