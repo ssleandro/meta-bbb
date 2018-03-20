@@ -10,7 +10,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     smaai5-base \
     packagegroup-smaai5 \
     \
-    beaglebone-capes \
     beaglebone-universal-io \
     connman-client \
     device-tree-overlays \
