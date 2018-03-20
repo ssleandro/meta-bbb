@@ -5,12 +5,12 @@ SRCNAME = "Adafruit_BBIO"
 
 DEPENDS += "dtc-native"
 
-SRC_URI = "git://github.com/robinsonsantos/Adafruit_BBIO.git"
-SRCREV = "b090e114810c7167b88b02329c5e34e766934986"
+PYPI_PACKAGE = "Adafruit_BBIO"
 
-S = "${WORKDIR}/git"
+SRC_URI[md5sum] = "6a0c286bfb5cb613e25a2e0ffa7da9a7"
+SRC_URI[sha256sum] = "6c3a11f9a84653537e09e2e70311b9d3a6f57d98838b2157b9a65ce0f52b4a85"
 
-inherit setuptools
+inherit setuptools pypi
 
 do_install_append() {
     install -d ${D}/${nonarch_base_libdir}/firmware
