@@ -12,7 +12,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     \
     beaglebone-capes \
     connman-client \
-    gadget-init \
     i2c-tools \
     nfs-utils-client \
     nmap \
