@@ -6,6 +6,7 @@ RDEPENDS_${PN} += " \
     python-flask \
     python-flask-jsonpify \
     python-flask-jwt \
+    python-gunicorn \
     python-io \
     python-json \
     python-lang \
