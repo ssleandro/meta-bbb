@@ -30,6 +30,7 @@ RDEPENDS_${PN} += " \
     relay \
     report-alarm \
     rtc \
+    scale \
     sensation \
     setting \
     statistic \
