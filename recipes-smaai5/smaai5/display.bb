@@ -5,4 +5,5 @@ FILES_${PN} += "${libdir}"
 RDEPENDS_${PN} += " \
     python-datetime \
     python-math \
+    python-nmap \
 "
