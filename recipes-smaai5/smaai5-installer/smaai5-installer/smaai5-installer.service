@@ -1,0 +1,9 @@
+[Unit]
+Description=SMAAI5 Installer
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/bin/smaai5-installer
+
+[Install]
+WantedBy=multi-user.target
