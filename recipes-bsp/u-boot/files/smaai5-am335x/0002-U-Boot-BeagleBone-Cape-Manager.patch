@@ -1,7 +1,7 @@
 From ce82bc328728025ea584419fb0bad284e1ee7297 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
 Date: Wed, 14 Feb 2018 13:40:32 -0600
-Subject: [PATCH 2/4] U-Boot: BeagleBone Cape Manager
+Subject: [PATCH 2/5] U-Boot: BeagleBone Cape Manager
 Organization: O.S. Systems Software LTDA.
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>

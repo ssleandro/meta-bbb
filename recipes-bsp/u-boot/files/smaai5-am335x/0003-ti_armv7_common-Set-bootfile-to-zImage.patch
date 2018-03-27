@@ -1,7 +1,7 @@
 From 599994664bf9a10aa3384d8c96da262b659710dc Mon Sep 17 00:00:00 2001
 From: Fabio Berton <fabio.berton@ossystems.com.br>
 Date: Mon, 19 Mar 2018 17:17:34 -0300
-Subject: [PATCH 3/4] ti_armv7_common: Set bootfile to zImage
+Subject: [PATCH 3/5] ti_armv7_common: Set bootfile to zImage
 Organization: O.S. Systems Software LTDA.
 
 Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
