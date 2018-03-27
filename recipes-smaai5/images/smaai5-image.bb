@@ -22,5 +22,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     udisks \
 "
 
-SMAAI5_PASSWORD = "\$1\$HFywRhHs\$hIAml7WzX1NqRTfUN7Yop/"
-EXTRA_USERS_PARAMS = "usermod -p '${SMAAI5_PASSWORD}' inobram;"
+SMAAI5_INOBRAM_PASSWORD = "\$1\$HFywRhHs\$hIAml7WzX1NqRTfUN7Yop/"
+SMAAI5_ROOT_PASSWORD = "\$1\$HFywRhHs\$QnMHi9oPLpyR6kxkSxknD0"
+EXTRA_USERS_PARAMS = " \
+    usermod -p '${SMAAI5_INOBRAM_PASSWORD}' inobram; \
+    usermod -p '${SMAAI5_ROOT_PASSWORD}' root; \
+"
