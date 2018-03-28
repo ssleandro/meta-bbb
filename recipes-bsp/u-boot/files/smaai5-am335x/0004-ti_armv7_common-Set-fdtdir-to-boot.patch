@@ -1,7 +1,7 @@
-From 599994664bf9a10aa3384d8c96da262b659710dc Mon Sep 17 00:00:00 2001
+From 5d385f999d6b976b361dffe1aefb4eadcaeac3b2 Mon Sep 17 00:00:00 2001
 From: Fabio Berton <fabio.berton@ossystems.com.br>
-Date: Mon, 19 Mar 2018 17:17:34 -0300
-Subject: [PATCH 3/6] ti_armv7_common: Set bootfile to zImage
+Date: Wed, 28 Mar 2018 16:12:35 -0300
+Subject: [PATCH 4/6] ti_armv7_common: Set fdtdir to /boot
 Organization: O.S. Systems Software LTDA.
 
 Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
@@ -10,18 +10,18 @@ Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/include/configs/ti_armv7_common.h b/include/configs/ti_armv7_common.h
-index 827ab87b85..806a7b11a0 100644
+index 806a7b11a0..f6392017e7 100644
 --- a/include/configs/ti_armv7_common.h
 +++ b/include/configs/ti_armv7_common.h
-@@ -343,7 +343,7 @@
- #define EEWIKI_UNAME_BOOT \
- 	"uname_boot="\
- 		"setenv bootdir /boot; " \
--		"setenv bootfile vmlinuz-${uname_r}; " \
-+		"setenv bootfile zImage; " \
+@@ -347,7 +347,7 @@
  		"if test -e ${devtype} ${bootpart} ${bootdir}/${bootfile}; then " \
  			"echo loading ${bootdir}/${bootfile} ...; "\
  			"run loadimage;" \
+-			"setenv fdtdir /boot/dtbs/${uname_r}; " \
++			"setenv fdtdir /boot; " \
+ 			"if test -n ${enable_uboot_overlays}; then " \
+ 				"if test -n ${uboot_base_dtb}; then " \
+ 					"if test -n ${dtb}; then " \
 -- 
 2.16.3
 

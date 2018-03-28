@@ -1,7 +1,7 @@
-From 737f5f4ac1941fc8a442ed1cb862094814d34bb6 Mon Sep 17 00:00:00 2001
+From 2360cc71c316f99c7e15d701703612110afaa036 Mon Sep 17 00:00:00 2001
 From: Fabio Berton <fabio.berton@ossystems.com.br>
 Date: Mon, 19 Mar 2018 17:22:28 -0300
-Subject: [PATCH 4/5] am335x_evm_defconfig: Set CONFIG_SYS_EXTRA_OPTIONS to
+Subject: [PATCH 5/6] am335x_evm_defconfig: Set CONFIG_SYS_EXTRA_OPTIONS to
  EMMC_BOOT
 Organization: O.S. Systems Software LTDA.
 
@@ -55,5 +55,5 @@ index 873090a7ad..1178108fb9 100644
  CONFIG_OF_LIBFDT_OVERLAY=y
 -CONFIG_PHY_MSCC=y
 -- 
-2.16.2
+2.16.3
 

@@ -1,7 +1,7 @@
-From 5d88a071a43855b66d937f7ee87673d672ebaa08 Mon Sep 17 00:00:00 2001
+From 20a2afbb37707aceceaa0c2896cd19259f632b32 Mon Sep 17 00:00:00 2001
 From: Fabio Berton <fabio.berton@ossystems.com.br>
 Date: Tue, 27 Mar 2018 14:37:40 -0300
-Subject: [PATCH 5/5] board/ti/am335x: Add code from smaai display
+Subject: [PATCH 6/6] board/ti/am335x: Add code from smaai display
 Organization: O.S. Systems Software LTDA.
 
 Code from:
