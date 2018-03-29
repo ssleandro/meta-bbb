@@ -39,4 +39,6 @@ RDEPENDS_${PN} += " \
     timer \
     watchdog \
     web \
+    \
+    smaai5-udev-extraconf \
 "
