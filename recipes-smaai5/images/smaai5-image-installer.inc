@@ -14,7 +14,6 @@ IMAGE_INSTALL += " \
     \
     base-files \
     base-passwd \
-    bb-cape-overlays \
     busybox \
     systemd \
     ${CORE_IMAGE_EXTRA_INSTALL} \
