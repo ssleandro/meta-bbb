@@ -1,4 +1,3 @@
-fdtfile=am335x-boneblack-uboot.dtb
 uname_r=1
 
 enable_uboot_overlays=1
