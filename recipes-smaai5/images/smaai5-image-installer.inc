@@ -14,9 +14,9 @@ IMAGE_INSTALL += " \
     \
     base-files \
     base-passwd \
+    bb-cape-overlays \
     beaglebone-universal-io \
     busybox \
-    device-tree-overlays \
     systemd \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     ${MACHINE_ESSENTIAL_EXTRA_RDEPENDS} \
