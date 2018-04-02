@@ -6,4 +6,5 @@ RDEPENDS_${PN} += " \
     python-datetime \
     python-math \
     python-nmap \
+    python-spidev \
 "
