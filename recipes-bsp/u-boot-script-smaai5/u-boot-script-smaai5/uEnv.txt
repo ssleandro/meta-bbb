@@ -8,4 +8,6 @@ disable_uboot_overlay_video=1
 disable_uboot_overlay_audio=1
 disable_uboot_overlay_wireless=1
 
+dtb_overlay=/lib/firmware/ADAFRUIT-SPI1-00A0.dtbo
+
 cmdline=coherent_pool=1M net.ifnames=0 quiet
