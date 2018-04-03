@@ -1,13 +1,15 @@
 uname_r=1
 
 enable_uboot_overlays=1
-enable_uboot_cape_universal=1
 
 ### Disable auto loading of virtual capes
 disable_uboot_overlay_video=1
 disable_uboot_overlay_audio=1
 disable_uboot_overlay_wireless=1
 
-dtb_overlay=/lib/firmware/ADAFRUIT-SPI1-00A0.dtbo
+### Overide capes with eeprom
+uboot_overlay_addr0=/lib/firmware/univ-bbb-Exx-00A0.dtbo
+uboot_overlay_addr1=/lib/firmware/ADAFRUIT-SPI0-00A0.dtbo
+
 
 cmdline=coherent_pool=1M net.ifnames=0 quiet
