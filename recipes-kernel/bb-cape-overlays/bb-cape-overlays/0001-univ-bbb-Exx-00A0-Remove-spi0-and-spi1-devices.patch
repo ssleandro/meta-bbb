@@ -1,0 +1,94 @@
+From 3f5e35fdeafd2bcd351e2292eaa4df88cb3c1f7c Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Thu, 5 Apr 2018 16:06:47 -0300
+Subject: [PATCH] univ-bbb-Exx-00A0: Remove spi0 and spi1 devices
+Organization: O.S. Systems Software LTDA.
+
+Remove spi devices to avoid conflict with adafruit spi.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ src/arm/univ-bbb-Exx-00A0.dts | 67 -----------------------------------
+ 1 file changed, 67 deletions(-)
+
+diff --git a/src/arm/univ-bbb-Exx-00A0.dts b/src/arm/univ-bbb-Exx-00A0.dts
+index 381e975..320bcec 100644
+--- a/src/arm/univ-bbb-Exx-00A0.dts
++++ b/src/arm/univ-bbb-Exx-00A0.dts
+@@ -3153,73 +3153,6 @@
+ 		};
+ 	};
+ 
+-	fragment@31 {
+-		target = <&spi0>;
+-		__overlay__ {
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			status = "okay";
+-			pinctrl-names = "default";
+-			pinctrl-0 = <>; 
+-
+-			spi0channel@0 {
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+-
+-				compatible = "spidev";
+-
+-				reg = <0>;
+-				spi-max-frequency = <16000000>;
+-				spi-cpha;
+-			};
+-
+-
+-			spi0channel@1 {
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+-
+-				compatible = "spidev";
+-
+-				reg = <1>;
+-				spi-max-frequency = <16000000>;
+-			};
+-		};
+-	};
+-
+-	fragment@32 {
+-		target = <&spi1>;
+-		__overlay__ {
+-			status = "okay";
+-			pinctrl-names = "default";
+-			pinctrl-0 = <>; 
+-
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-
+-			spi1channel@0 {
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+-
+-				compatible = "spidev";
+-
+-				reg = <0>;
+-				spi-max-frequency = <16000000>;
+-				spi-cpha;
+-			};
+-
+-			spi1channel@1 {
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+-
+-				compatible = "spidev";
+-
+-				reg = <1>;
+-				spi-max-frequency = <16000000>;
+-			};
+-		};
+-	};
+-
+ 	fragment@33 {
+ 		target = <&dcan0>;
+ 		__overlay__ {
+-- 
+2.17.0
+
