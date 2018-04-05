@@ -1,0 +1,44 @@
+From f58cb3774061c1f94e544f1605c79c52c4790a4a Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Thu, 5 Apr 2018 17:01:27 -0300
+Subject: [PATCH] ADAFRUIT-SPI0-00A0: Free up the pins used by the cape from
+ the pinmux helpers
+Organization: O.S. Systems Software LTDA.
+
+This allows to use ADAFRUIT-SPI0-00A0 with univ-bbb-Exx-00A0 orverlay
+at same time.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ overlays/ADAFRUIT-SPI0-00A0.dts | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/overlays/ADAFRUIT-SPI0-00A0.dts b/overlays/ADAFRUIT-SPI0-00A0.dts
+index 22d9d61..4c9f5c7 100644
+--- a/overlays/ADAFRUIT-SPI0-00A0.dts
++++ b/overlays/ADAFRUIT-SPI0-00A0.dts
+@@ -32,7 +32,20 @@
+         };
+     };
+ 
+-    fragment@1 {
++	/*
++	 * Free up the pins used by the cape from the pinmux helpers.
++	 */
++	fragment@1 {
++		target = <&ocp>;
++		__overlay__ {
++			P9_17_pinmux { status = "disabled"; };	/* spi0_cs0 */
++			P9_18_pinmux { status = "disabled"; };	/* spi0_d1 */
++			P9_21_pinmux { status = "disabled"; };	/* spi0_d0 */
++			P9_22_pinmux { status = "disabled"; };	/* spi0_sclk */
++		};
++	};
++
++    fragment@2 {
+         target = <&spi0>;
+         __overlay__ {
+              #address-cells = <1>;
+-- 
+2.17.0
+
