@@ -7,7 +7,7 @@ PV = "1.0+git${SRCPV}"
 
 DEPENDS = "dtc-native"
 
-SRCREV = "f4035b85bea9bb3a17b8027e0f8f308d593ab414"
+SRCREV = "26485ce5c9626f99165f810ebc87949cf25d925a"
 SRC_URI = " \
     git://github.com/RobertCNelson/bb.org-overlays.git;branch=master \
 "
