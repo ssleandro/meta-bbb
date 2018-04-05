@@ -17,9 +17,8 @@ do_compile[noexec] = "1"
 do_install() {
     cp -r ${S}/${BPN}/*  ${D}/
     rm -rf ${D}${localstatedir}/run
-    chmod -R 0644 ${D}
-    find ${D} -type f ! -type l -name *.py \
-         ! -name *.service ! -name *.timer \
+    find ${D} -type f -a ! -type l -exec chmod -R 0644 {} +
+    find ${D} -type f -a ! -type l -a '(' -name '*.sh' -o -name '*.py' ')' \
          -exec chmod -R 0755 {} +
 }
 
