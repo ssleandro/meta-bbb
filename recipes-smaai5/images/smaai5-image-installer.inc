@@ -40,4 +40,4 @@ copy_smaai5_image_files() {
 
 ROOTFS_POSTPROCESS_COMMAND = "copy_smaai5_image_files;"
 
-IMAGE_FSTYPES = "wic.xz"
+IMAGE_FSTYPES = "wic.bmap wic.xz"
