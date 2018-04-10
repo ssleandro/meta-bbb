@@ -13,40 +13,23 @@ set_leds() {
     fi
 }
 
+
+die() {
+    set_leds none
+    while true; do
+        sleep 1
+    done
+}
+
+
 run_install() {
-    set_leds heartbeat
-
-    . /installer-data/file-map.sh
-
-    echo "MLO=$MLO"
-    echo "UBOOT=$UBOOT"
-    echo "ROOTFS=$ROOTFS"
-
-    # Create new partition
-    parted -s $EMMC mklabel msdos
-    parted -s --align optimal $EMMC mkpart primary ext4 2MiB 100%
-
-    # Format partition
-    mkfs.ext4 -F ${EMMC}p1 -L system
-
-    # Mount newly created partition
-    mkdir -p /tmp/rootfs
-    mount ${EMMC}p1 /tmp/rootfs/
-
-    # Populate EMMC's rootfs
-    tar -xf $ROOTFS -C /tmp/rootfs/; sync
-
-    # Unmount partition
-    umount ${EMMC}p1
-
-    # Flash U-Boot
-    dd if="$MLO" of="$EMMC" count=1 seek=1 bs=128k
-    dd if="$UBOOT" of="$EMMC" count=2 seek=1 bs=384k
+    set_leds heartbeat || die
+    cd /installer-data || die
+    bmaptool copy img.wic.xz "$EMMC" || die
 }
 
 if run_install ; then
     set_leds default-on
 else
-    echo "ERRORS found: ${ERROR}"
-    set_leds none
+    die
 fi

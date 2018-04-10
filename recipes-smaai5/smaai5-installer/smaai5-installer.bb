@@ -18,9 +18,6 @@ do_install() {
 }
 
 RDEPENDS_${PN} += " \
-    coreutils \
-    e2fsprogs-mke2fs \
-    mmc-utils \
-    parted \
-    util-linux \
+    bmap-tools \
+    xz \
 "
