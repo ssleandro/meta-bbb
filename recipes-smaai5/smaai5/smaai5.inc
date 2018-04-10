@@ -20,6 +20,10 @@ do_install() {
     find ${D} -type f -a ! -type l -exec chmod -R 0644 {} +
     find ${D} -type f -a ! -type l -a '(' -name '*.sh' -o -name '*.py' ')' \
          -exec chmod -R 0755 {} +
+    for d in ${D}${sbindir} ${D}${base_sbindir} \
+                 ${D}${bindir} ${D}${base_bindir}; do
+        [ -d $d ] && chmod -R 0755 $d || continue
+    done
 }
 
 RDEPENDS_${PN} += " \
