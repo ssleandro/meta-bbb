@@ -1,15 +1,7 @@
-uname_r=1
-
-enable_uboot_overlays=1
-
-### Disable auto loading of virtual capes
-disable_uboot_overlay_video=1
-disable_uboot_overlay_audio=1
-disable_uboot_overlay_wireless=1
-
-### Overide capes with eeprom
-uboot_overlay_addr0=/lib/firmware/univ-bbb-Exx-00A0.dtbo
-uboot_overlay_addr1=/lib/firmware/ADAFRUIT-SPI0-00A0.dtbo
-
-
-cmdline=coherent_pool=1M net.ifnames=0 quiet
+load_image=load mmc 0:1 ${loadaddr} /boot/zImage
+load_fdt=load mmc 0:1 ${fdtaddr} /boot/${fdtfile}; load mmc 0:1 ${rdaddr} /lib/firmware/univ-bbb-Exx-00A0.dtbo; fdt addr ${fdtaddr}; \
+fdt resize ${fdt_buffer}; fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; \
+load mmc 1:1 ${rdaddr} /lib/firmware/BB-BONE-eMMC1-01-00A0.dtbo; fdt addr ${fdtaddr}; \
+fdt resize ${fdt_buffer}; fdt apply ${rdaddr}; fdt resize ${fdt_buffer};
+mmc_args=setenv bootargs console=${console} root=/dev/mmcblk0p1 rootfstype=ext4
+bootcmd=run load_image; run load_fdt; run mmc_args; bootz ${loadaddr} - ${fdtaddr}
