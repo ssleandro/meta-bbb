@@ -11,6 +11,7 @@ inherit core-image
 
 IMAGE_INSTALL += " \
     smaai5-installer \
+    u-boot-script-smaai5-installer \
     \
     base-files \
     base-passwd \
@@ -23,21 +24,18 @@ IMAGE_INSTALL += " \
 copy_smaai5_image_files() {
     local dest_dirname=installer-data
     local dest=${IMAGE_ROOTFS}/$dest_dirname
-    local file_map=$dest/file-map.sh
-
     mkdir -p $dest
 
-    # U-Boot and MLO
-    cp ${DEPLOY_DIR_IMAGE}/MLO-${MACHINE} $dest/MLO
-    echo "MLO=\"/$dest_dirname/MLO\"" >> $file_map
-    cp ${DEPLOY_DIR_IMAGE}/u-boot-${MACHINE}.img $dest/u-boot.img
-    echo "UBOOT=\"/$dest_dirname/u-boot.img\"" >> $file_map
-
-    ## Rootfs
-    cp ${DEPLOY_DIR_IMAGE}/${SMAAI5_INSTALLER_IMAGE_ROOTFS} $dest/
-    echo "ROOTFS=\"/$dest_dirname/${SMAAI5_INSTALLER_IMAGE_ROOTFS}\"" >> $file_map
+    cp ${DEPLOY_DIR_IMAGE}/${SMAAI5_INSTALLER_IMAGE_ROOTFS}.wic.bmap $dest/img.wic.bmap
+    cp ${DEPLOY_DIR_IMAGE}/${SMAAI5_INSTALLER_IMAGE_ROOTFS}.wic.xz $dest/img.wic.xz
 }
 
-ROOTFS_POSTPROCESS_COMMAND = "copy_smaai5_image_files;"
+remove_fstab() {
+   rm -f ${IMAGE_ROOTFS}/${sysconfdir}/fstab
+}
+
+ROOTFS_POSTPROCESS_COMMAND = "copy_smaai5_image_files;remove_fstab;"
 
 IMAGE_FSTYPES = "wic.bmap wic.xz"
+
+WKS_FILE = "smaai5-installer.wks"
