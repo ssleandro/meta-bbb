@@ -1,0 +1,5 @@
+part MLO --source rawcopy --sourceparams="file=MLO" --ondisk mmcblk --no-table --align 128
+part u-boot --source rawcopy --sourceparams="file=u-boot.img" --ondisk mmcblk --no-table --align 384
+part / --source rootfs --ondisk mmcblk --fstype=ext4 --label rootfs --align 1024
+
+bootloader --ptable msdos

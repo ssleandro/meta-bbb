@@ -1,24 +1,25 @@
-From 93f096765bad0cef0be5350635368aed589ceaf5 Mon Sep 17 00:00:00 2001
+From 45de661208215dfe445fd428018c9a118a630ac4 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
 Date: Sat, 20 Jan 2018 12:43:22 -0600
-Subject: [PATCH 1/6] am335x_evm: uEnv.txt, bootz, n fixes
+Subject: [PATCH 1/5] am335x_evm: uEnv.txt, bootz, n fixes
 Organization: O.S. Systems Software LTDA.
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
 ---
- board/ti/am335x/board.c               |  120 +++-
+ board/ti/am335x/board.c               |  120 ++-
  board/ti/am335x/board.h               |   48 +-
  board/ti/am335x/mux.c                 |   18 +-
  configs/am335x_boneblack_defconfig    |    7 +-
  configs/am335x_evm_defconfig          |   36 +-
- configs/am335x_pocketbeagle_defconfig | 1055 +++++++++++++++++++++++++++++++++
+ configs/am335x_pocketbeagle_defconfig | 1055 +++++++++++++++++++++++++
  fs/btrfs/compression.c                |    5 +-
  fs/btrfs/hash.c                       |    3 +-
  fs/ext4/ext4_common.c                 |    2 +-
- include/configs/am335x_evm.h          |  101 +++-
+ include/configs/am335x_evm.h          |  101 ++-
  include/configs/ti_am335x_common.h    |    2 +
- include/configs/ti_armv7_common.h     |  299 ++++++++++
- include/environment/ti/mmc.h          |   67 ++-
+ include/configs/ti_armv7_common.h     |  299 +++++++
+ include/environment/ti/mmc.h          |   67 +-
  13 files changed, 1685 insertions(+), 78 deletions(-)
  create mode 100644 configs/am335x_pocketbeagle_defconfig
 
@@ -2189,5 +2190,5 @@ index 4305ebdaaf..0364f62c3d 100644
  				"if test ${boot_fdt} = try; then " \
  					"bootz; " \
 -- 
-2.16.3
+2.17.0
 

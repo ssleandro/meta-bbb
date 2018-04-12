@@ -1,7 +1,7 @@
-From 20a2afbb37707aceceaa0c2896cd19259f632b32 Mon Sep 17 00:00:00 2001
+From a1f5b73ab0ffa42003ddc8bc7afcd45b79fb0a8f Mon Sep 17 00:00:00 2001
 From: Fabio Berton <fabio.berton@ossystems.com.br>
 Date: Tue, 27 Mar 2018 14:37:40 -0300
-Subject: [PATCH 6/6] board/ti/am335x: Add code from smaai display
+Subject: [PATCH 3/5] board/ti/am335x: Add code from smaai display
 Organization: O.S. Systems Software LTDA.
 
 Code from:
@@ -13,10 +13,10 @@ Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
  board/ti/am335x/Kconfig  |   9 ++
  board/ti/am335x/Makefile |   1 +
  board/ti/am335x/board.c  |   3 +-
- board/ti/am335x/glcd.c   | 286 +++++++++++++++++++++++++++++++++++++++++++++++
- board/ti/am335x/glcd.h   |  74 ++++++++++++
+ board/ti/am335x/glcd.c   | 286 +++++++++++++++++++++++++++++++++++++++
+ board/ti/am335x/glcd.h   |  74 ++++++++++
  board/ti/am335x/mux.c    |   1 +
- board/ti/am335x/smaai.h  |  65 +++++++++++
+ board/ti/am335x/smaai.h  |  65 +++++++++
  include/spi.h            |   3 +
  8 files changed, 441 insertions(+), 1 deletion(-)
  create mode 100644 board/ti/am335x/glcd.c
@@ -540,5 +540,5 @@ index 08c7480fda..eb042870d0 100644
  #define SPI_CPHA	BIT(0)			/* clock phase */
  #define SPI_CPOL	BIT(1)			/* clock polarity */
 -- 
-2.16.3
+2.17.0
 

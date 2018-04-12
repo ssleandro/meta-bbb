@@ -1,17 +1,18 @@
-From ce82bc328728025ea584419fb0bad284e1ee7297 Mon Sep 17 00:00:00 2001
+From 90572d568049035c34681ccf47ca31ff39308258 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
 Date: Wed, 14 Feb 2018 13:40:32 -0600
-Subject: [PATCH 2/6] U-Boot: BeagleBone Cape Manager
+Subject: [PATCH 2/5] U-Boot: BeagleBone Cape Manager
 Organization: O.S. Systems Software LTDA.
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
 ---
  arch/arm/mach-omap2/am33xx/clock_am33xx.c |   1 +
- board/ti/am335x/board.c                   | 451 ++++++++++++++++++++++++++++++
- board/ti/am335x/board.h                   |  17 ++
- board/ti/am335x/hash-string.h             |  59 ++++
+ board/ti/am335x/board.c                   | 451 ++++++++++++++++++++++
+ board/ti/am335x/board.h                   |  17 +
+ board/ti/am335x/hash-string.h             |  59 +++
  board/ti/am335x/mux.c                     |  15 +
- include/configs/ti_armv7_common.h         | 192 +++++++++++++
+ include/configs/ti_armv7_common.h         | 192 +++++++++
  include/configs/ti_armv7_omap.h           |   3 +
  include/environment/ti/mmc.h              |  15 +
  8 files changed, 753 insertions(+)
@@ -905,5 +906,5 @@ index 0364f62c3d..d48d6c2d91 100644
  		"ums 0 ${devtype} 1;\0" \
  	"envboot=mmc dev ${mmcdev}; " \
 -- 
-2.16.3
+2.17.0
 
