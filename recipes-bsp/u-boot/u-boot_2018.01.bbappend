@@ -5,3 +5,5 @@ SRC_URI += " \
     file://0004-UpdateHub-Add-common-header.patch \
     file://0005-Add-UpdateHub-support-for-SMAAI5.patch \
 "
+
+LOCALVERSION = "inobram1"
