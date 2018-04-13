@@ -16,6 +16,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     nmap \
     ntp \
     ntpdate \
+    openssh-sftp-server \
     sudo \
     udisks \
     \
