@@ -5,9 +5,10 @@ SRC_URI = "git://git@bitbucket.org/inobram/${BPN}.git;branch=${SRCBRANCH};protoc
 
 S = "${WORKDIR}/git"
 
-PV = "1.0.0+${SRCPV}"
+PV = "1.0+gitr${SRCPV}"
+PKGV = "${GITPKGVTAG}"
 
-inherit systemd
+inherit gitpkgv systemd
 
 SYSTEMD_SERVICE_${PN} = "${PN}.service"
 
