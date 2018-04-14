@@ -1,0 +1,33 @@
+From 1045e993031ccbaee3a8da96a6ec78cb8bf2da01 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Sat, 14 Apr 2018 17:58:03 -0300
+Subject: [PATCH] systemd-udevd: re-enable mount propagation for udevd
+Organization: O.S. Systems Software LTDA.
+
+Change the mount propagation flag from MountFlags=slave to MountFlags=shared
+(default). Use shared to ensure that mounts and unmounts are propagated from
+systemd's namespace to the service's namespace and vice versa, while use slave
+to run processes so that none of their mounts and unmounts will propagate to
+the host.
+
+Signed-off-by: Hongzhi.Song <hongzhi.song@windriver.com>
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ units/systemd-udevd.service.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/units/systemd-udevd.service.in b/units/systemd-udevd.service.in
+index fc037b5a5..841d7a83f 100644
+--- a/units/systemd-udevd.service.in
++++ b/units/systemd-udevd.service.in
+@@ -24,7 +24,6 @@ ExecStart=@rootlibexecdir@/systemd-udevd
+ KillMode=mixed
+ WatchdogSec=3min
+ TasksMax=infinity
+-MountFlags=slave
+ MemoryDenyWriteExecute=yes
+ RestrictRealtime=yes
+ RestrictAddressFamilies=AF_UNIX AF_NETLINK AF_INET AF_INET6
+-- 
+2.14.2
+
