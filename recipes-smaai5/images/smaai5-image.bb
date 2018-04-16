@@ -12,8 +12,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     \
     connman-client \
     nfs-utils-client \
-    ntp \
-    ntpdate \
     openssh-sftp-server \
     sudo \
     \
