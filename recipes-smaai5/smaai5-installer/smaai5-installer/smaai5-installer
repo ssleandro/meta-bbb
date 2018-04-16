@@ -25,6 +25,10 @@ die() {
 run_install() {
     set_leds heartbeat || die
     cd /installer-data || die
+    if [ ! -e "$EMMC" ]; then
+        echo "ERROR! eMMC device not found!!!"
+        die
+    fi
     bmaptool copy img.wic.xz "$EMMC" || die
 }
 
