@@ -18,7 +18,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ntpdate \
     openssh-sftp-server \
     sudo \
-    udisks \
     \
     updatehub-ctl \
     updatehub-local-update \
