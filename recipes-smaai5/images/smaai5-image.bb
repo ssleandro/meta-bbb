@@ -11,7 +11,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-smaai5 \
     \
     connman-client \
-    i2c-tools \
     nfs-utils-client \
     nmap \
     ntp \
