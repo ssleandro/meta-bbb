@@ -6,6 +6,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     bash \
     git \
     make \
+    openssh-sftp-server \
     tree \
     vim \
 "
