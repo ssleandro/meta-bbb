@@ -11,7 +11,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-smaai5 \
     \
     connman-client \
-    nfs-utils-client \
     openssh-sftp-server \
     sudo \
     \
