@@ -13,6 +13,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     connman-client \
     sudo \
     \
+    python-updatehub-agent-sdk \
     updatehub-ctl \
     updatehub-local-update \
 "
