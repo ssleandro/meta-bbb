@@ -1,14 +1,14 @@
 SUMMARY = "UpdateHub's agent SDK for Python"
 HOMEPAGE = "https://github.com/updatehub/agent-sdk-python"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b7633ba33f5204fb84beee30de6121e7"
 
 DEPENDS = "${PYTHON_PN}-setuptools"
 
 inherit pypi
 
-SRC_URI[md5sum] = "bf6457a1b7a1277fd03bc86a7cbca59d"
-SRC_URI[sha256sum] = "8f60db1728f13d2d5b51747ca59d300fae27a58e398573ea741a2d575f694387"
+SRC_URI[md5sum] = "9ed99c6eb0747741a5612fdb53f5e386"
+SRC_URI[sha256sum] = "ae4320b3aab8e328fe1e510cc174b5885c8c025ed643aaaa4cc732e3b364fe68"
 
 RDEPENDS_${PN} += " \
     ${PYTHON_PN}-io \
