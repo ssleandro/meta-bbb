@@ -1,0 +1,10 @@
+ENV{ID_FS_LABEL}=="updatehub|UPDATEHUB", \
+  ENV{DEVTYPE}=="partition", \
+  ACTION=="add", \
+  SUBSYSTEM=="block", \
+  RUN+="/bin/touch /tmp/updatehub-usb"
+
+ENV{ID_FS_LABEL}=="updatehub|UPDATEHUB", \
+  ENV{DEVTYPE}=="partition", \
+  ACTION=="remove", \
+  RUN+="/bin/rm -f /tmp/updatehub-usb"
