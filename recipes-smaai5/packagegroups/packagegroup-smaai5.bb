@@ -37,6 +37,7 @@ RDEPENDS_${PN} += " \
     stick \
     synchronizer \
     timer \
+    updatebystick \
     watchdog \
     web \
     \

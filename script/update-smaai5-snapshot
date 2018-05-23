@@ -80,6 +80,7 @@ record_srcrev     statistic         statistic          master
 record_srcrev     stick             stick              master
 record_srcrev     synchronizer      synchronizer       master
 record_srcrev     timer             timer              master
+record_srcrev     updatebystick     updatebystick      master
 record_srcrev     web               web                master
 
 sed -i '1{/^$/d}' $base/conf/smaai5-srcrev.conf
