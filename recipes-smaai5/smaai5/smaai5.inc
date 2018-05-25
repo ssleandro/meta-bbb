@@ -27,6 +27,18 @@ do_install() {
     done
 }
 
+pkg_postinst_${PN}() {
+    dbscript=`echo /usr/lib/${PN}/db.py | sed 's,-,_,g'`
+
+    if [ -n "$D" ] && [ -e "$D$dbscript" ]; then
+        exit 1
+    fi
+
+    if [ -z "$D" ] && [ -e "$dbscript" ]; then
+        "$dbscript"
+    fi
+}
+
 RDEPENDS_${PN} += " \
     python-core \
     python-distutils \
