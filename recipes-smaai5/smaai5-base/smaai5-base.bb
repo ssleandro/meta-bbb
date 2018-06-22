@@ -12,6 +12,7 @@ USERADD_PARAM_${PN} = "-p '*' -G adm,dialout,sudo,plugdev,users,netdev,input ino
 RDEPENDS_${PN} += " \
     connman \
     tzdata \
+    zram-init \
 "
 
 ALLOW_EMPTY_${PN} = "1"
