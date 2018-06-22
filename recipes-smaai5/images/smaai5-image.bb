@@ -6,6 +6,10 @@ inherit core-image extrausers updatehub-image
 
 IMAGE_FEATURES += "package-management ssh-server-openssh"
 
+BAD_RECOMMENDATIONS += " \
+    busybox-syslog \
+"
+
 CORE_IMAGE_EXTRA_INSTALL += " \
     smaai5-base \
     packagegroup-smaai5 \
