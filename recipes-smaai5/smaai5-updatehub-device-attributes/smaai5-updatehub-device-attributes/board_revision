@@ -1,0 +1,5 @@
+#!/bin/sh
+
+BOARD_REV=$(fw_printenv -n board_rev | sed 's/^0*//')
+
+echo "board_revision=$BOARD_REV"

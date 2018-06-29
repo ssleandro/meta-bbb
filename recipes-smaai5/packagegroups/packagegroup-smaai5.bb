@@ -42,4 +42,5 @@ RDEPENDS_${PN} += " \
     web \
     \
     smaai5-udev-extraconf \
+    smaai5-updatehub-device-attributes \
 "
