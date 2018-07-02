@@ -1,0 +1,35 @@
+From 40686d78e21cf52f858526137eb4f04e10c13a6c Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Mon, 2 Jul 2018 17:22:35 -0300
+Subject: [PATCH] cmd/updatehub-server/udev.rules: Change device match name to
+ SMAAI5UPD
+Organization: O.S. Systems Software LTDA.
+
+Change to match flash drive with name smaai5upd and SMAAI5UPD for smaai5 product.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ cmd/updatehub-server/udev.rules | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmd/updatehub-server/udev.rules b/cmd/updatehub-server/udev.rules
+index 3c2b75f..03019c8 100644
+--- a/cmd/updatehub-server/udev.rules
++++ b/cmd/updatehub-server/udev.rules
+@@ -1,11 +1,11 @@
+-ENV{ID_FS_LABEL}=="updatehub|UPDATEHUB", \
++ENV{ID_FS_LABEL}=="smaai5upd|SMAAI5UPD", \
+   ENV{DEVTYPE}=="partition", \
+   ACTION=="add", \
+   SUBSYSTEM=="block", \
+   RUN+="/bin/mkdir -p /mnt/updatehub", \
+   RUN+="/bin/sh -c '/bin/echo /usr/bin/updatehub-server --mount /dev/%k --fstype $env{ID_FS_TYPE} --wait /mnt/updatehub | at -M now'"
+ 
+-ENV{ID_FS_LABEL}=="updatehub|UPDATEHUB", \
++ENV{ID_FS_LABEL}=="smaai5upd|SMAAI5UPD", \
+   ENV{DEVTYPE}=="partition", \
+   ACTION=="remove", \
+   RUN+="/usr/bin/killall updatehub-server", \
+-- 
+2.18.0
+
