@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 inherit core-image extrausers updatehub-image
 
-IMAGE_FEATURES += "package-management ssh-server-openssh"
+IMAGE_FEATURES += "ssh-server-openssh"
 
 BAD_RECOMMENDATIONS += " \
     busybox-syslog \
