@@ -20,7 +20,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     sudo \
     \
     updatehub-ctl \
-    updatehub-local-update \
 "
 
 SMAAI5_INOBRAM_PASSWORD = "\$1\$HFywRhHs\$hIAml7WzX1NqRTfUN7Yop/"
