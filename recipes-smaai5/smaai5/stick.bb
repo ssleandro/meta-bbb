@@ -1,7 +1,15 @@
 require smaai5.inc
 
-SRC_URI += "file://rules.d-90-stick.rules-Change-rule-to-use-with-Updat.patch"
+SRC_URI += " \
+    file://0001-stick-mount.sh-Don-t-mount-media-stick.patch \
+    file://99-stick.rules \
+"
 
 SYSTEMD_AUTO_ENABLE = "disable"
 
-RDEPENDS_${PN} += "util-linux-mount util-linux-umount"
+do_install_append () {
+    rm -rf ${D}${sysconfdir}/udev
+    install -Dm 0644 ${WORKDIR}/99-stick.rules ${D}${nonarch_base_libdir}/udev/rules.d/99-stick.rules
+}
+
+RDEPENDS_${PN} += "util-linux-mount util-linux-umount updatehub-server at"

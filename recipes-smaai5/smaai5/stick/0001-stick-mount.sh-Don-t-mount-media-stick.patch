@@ -1,0 +1,31 @@
+From 564e67379cc8e3b8ff13b6f5c649af7b3cec3040 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Fri, 13 Jul 2018 19:05:09 -0300
+Subject: [PATCH] stick-mount.sh: Don't mount /media/stick/
+Organization: O.S. Systems Software LTDA.
+
+Stick udev rule will create and mount /media/stick/ directory.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ stick/usr/lib/stick/script/sh/stick-mount.sh | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/stick/usr/lib/stick/script/sh/stick-mount.sh b/stick/usr/lib/stick/script/sh/stick-mount.sh
+index 3437e0d..989cae8 100755
+--- a/stick/usr/lib/stick/script/sh/stick-mount.sh
++++ b/stick/usr/lib/stick/script/sh/stick-mount.sh
+@@ -1,10 +1,6 @@
+ #!/bin/sh
+ # This script is called by udev when a usb devices is plugged
+ 
+-mkdir -p /media/stick/
+-mount -o rw,users,sync $DEVNAME /media/stick/
+-
+-
+ # stop old installation
+ systemctl stop smaai-display
+ 
+-- 
+2.18.0
+
