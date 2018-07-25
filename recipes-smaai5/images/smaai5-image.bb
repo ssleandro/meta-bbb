@@ -19,6 +19,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     htop \
     less \
     sudo \
+    systemd-analyze \
     \
     updatehub-ctl \
 "
