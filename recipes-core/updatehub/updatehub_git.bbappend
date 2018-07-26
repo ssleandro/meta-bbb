@@ -1,3 +1,3 @@
-SRCREV = "d0dbbe005b8ad548ba54d0c16cd088bcce8fbd92"
+SRCREV = "1447536bc3d3c46b5ef87de899ea841c90ee164f"
 
 PV = "1.0.10+${SRCPV}"
