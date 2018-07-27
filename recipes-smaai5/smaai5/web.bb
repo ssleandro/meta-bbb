@@ -1,6 +1,6 @@
 require smaai5.inc
 
-FILES_${PN} += "${systemd_unitdir}/system/web.socket"
+SYSTEMD_SERVICE_${PN} = "${PN}.socket"
 
 RDEPENDS_${PN} += " \
     python-crypt \
