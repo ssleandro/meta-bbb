@@ -3,7 +3,7 @@ ENV{DEVTYPE}=="partition", \
   KERNEL=="sd?1", \
   NAME="%k", \
   RUN+="/bin/mkdir -p /media/stick", \
-  RUN+="/bin/sh -c '/bin/echo /usr/bin/updatehub-server --mount /dev/%k --fstype $env{ID_FS_TYPE} --wait /media/stick | at -M now'", \
+  RUN+="/bin/sh -c '/bin/echo /usr/bin/updatehub-server --mount /dev/%k --fstype $env{ID_FS_TYPE} --probe /media/stick | at -M now'", \
   RUN+="/usr/lib/stick/script/sh/stick-mount.sh"
 
 ENV{DEVTYPE}=="partition", \
