@@ -1,7 +1,6 @@
 require smaai5.inc
 
 SRC_URI += " \
-    file://0001-stick-mount.sh-Don-t-mount-media-stick.patch \
     file://99-stick.rules \
 "
 
