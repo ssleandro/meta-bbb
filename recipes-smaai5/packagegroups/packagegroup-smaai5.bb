@@ -39,6 +39,7 @@ RDEPENDS_${PN} += " \
     timer \
     updatebystick \
     watchdog \
+    watcher \
     web \
     \
     smaai5-udev-extraconf \
