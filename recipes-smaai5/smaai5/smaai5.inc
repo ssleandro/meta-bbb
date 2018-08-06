@@ -1,6 +1,6 @@
 LICENSE = "CLOSED"
 
-SRCBRANCH ?= "5.x"
+SRCBRANCH ?= "master"
 SRC_URI = "git://git@bitbucket.org/inobram/${BPN}.git;branch=${SRCBRANCH};protocol=ssh"
 
 S = "${WORKDIR}/git"
