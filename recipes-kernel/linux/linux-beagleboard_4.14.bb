@@ -6,10 +6,10 @@ inherit kernel siteinfo
 
 S = "${WORKDIR}/git"
 
-PV = "4.14.32-ti-r42+git${SRCPV}"
+PV = "4.14.61-ti-r68+git${SRCPV}"
 
 SRCBRANCH = "4.14"
-SRCREV = "5402f1399ad3aa0054cb339db198ef901bb95c62"
+SRCREV = "578ad77d95821bcba8c3df2503b5bd001b014d43"
 SRC_URI = " \
     git://github.com/beagleboard/linux.git;branch=${SRCBRANCH} \
     file://defconfig \
