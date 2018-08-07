@@ -7,7 +7,7 @@ PV = "1.0+git${SRCPV}"
 
 DEPENDS = "dtc-native"
 
-SRCREV = "c34082c32bafff0157b098b0593789cd068f436e"
+SRCREV = "e212615078d9faa07e3be865644d6d4c78e10415"
 SRC_URI = " \
     git://github.com/RobertCNelson/bb.org-overlays.git;branch=master \
     file://0001-univ-bbb-Exx-00A0-Remove-spi0-and-spi1-devices.patch \
