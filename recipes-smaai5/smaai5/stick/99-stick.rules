@@ -1,13 +1,11 @@
 ENV{DEVTYPE}=="partition", \
   ACTION=="add", \
   KERNEL=="sd?1", \
-  NAME="%k", \
   RUN+="/usr/lib/stick/script/sh/stick-mount.sh", \
   RUN+="/bin/sh -c '/bin/echo /usr/bin/updatehub-server /media/stick | at -M now'"
 
 ENV{DEVTYPE}=="partition", \
   ACTION=="remove", \
   KERNEL=="sd*", \
-  NAME="%k", \
   RUN+="/usr/bin/killall updatehub-server", \
   RUN+="/usr/lib/stick/script/sh/stick-umount.sh"
