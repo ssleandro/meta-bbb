@@ -17,6 +17,7 @@ do_install () {
 
 RDEPENDS_${PN} += " \
     connman \
+    procps \
     tzdata \
     zram-init \
 "
