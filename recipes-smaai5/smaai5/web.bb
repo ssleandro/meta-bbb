@@ -1,6 +1,7 @@
 require smaai5.inc
 
-SYSTEMD_SERVICE_${PN} = "${PN}.socket"
+SYSTEMD_SERVICE_${PN} += "${PN}.timer"
+SYSTEMD_SERVICE_${PN}_remove = "${PN}-control.socket"
 
 RDEPENDS_${PN} += " \
     python-crypt \

@@ -1,5 +1,8 @@
 require smaai5.inc
 
+SYSTEMD_SERVICE_${PN}_remove = "${PN}-control.socket"
+SYSTEMD_SERVICE_${PN} += "${PN}.timer"
+
 SYSTEMD_PACKAGES += "${PN}m"
 SYSTEMD_SERVICE_${PN}m = "${PN}m.service ${PN}m.timer"
 

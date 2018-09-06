@@ -10,7 +10,7 @@ PKGV = "${GITPKGVTAG}"
 
 inherit gitpkgv systemd
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service"
+SYSTEMD_SERVICE_${PN} = "${PN}.service ${PN}-control.socket"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"

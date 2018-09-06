@@ -4,6 +4,7 @@ SRC_URI += " \
     file://99-stick.rules \
 "
 
+SYSTEMD_SERVICE_${PN}_remove = "${PN}-control.socket"
 SYSTEMD_AUTO_ENABLE = "disable"
 
 do_install_append () {
