@@ -10,7 +10,7 @@ PKGV = "${GITPKGVTAG}"
 
 inherit gitpkgv systemd
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service ${PN}-control.socket"
+SYSTEMD_SERVICE_${PN} = "${PN}.service"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
@@ -38,6 +38,13 @@ pkg_postinst_${PN}() {
         "$dbscript"
     fi
 }
+
+FILES_${PN} += " \
+    ${systemd_system_unitdir}/${PN}-control.socket \
+    ${systemd_system_unitdir}/${PN}.service \
+"
+
+FILES_${PN}-manager += "${systemd_system_unitdir}/${PN}-manager-control.socket"
 
 RDEPENDS_${PN} += " \
     python-core \
