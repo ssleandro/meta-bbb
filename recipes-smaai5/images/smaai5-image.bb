@@ -14,6 +14,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     smaai5-base \
     packagegroup-smaai5 \
     \
+    bash \
     connman-client \
     git \
     htop \
