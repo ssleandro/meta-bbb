@@ -1,0 +1,10 @@
+[Unit]
+Description=Generate SMAAI5 cloud keys
+RequiresMountsFor=/data
+
+[Service]
+ExecStart=/usr/bin/smaai5-generate-cloud-keys
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

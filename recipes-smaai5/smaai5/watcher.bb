@@ -12,4 +12,5 @@ RDEPENDS_${PN} += " \
     python-pycparser \
     python-pyjwt \
     python-six \
+    smaai5-cloud-keys \
 "

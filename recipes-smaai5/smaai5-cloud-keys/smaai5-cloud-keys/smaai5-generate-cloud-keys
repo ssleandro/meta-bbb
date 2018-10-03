@@ -1,0 +1,17 @@
+#! /bin/sh
+
+KEYS_DIR="/data/cloud/keys"
+CERT="$KEYS_DIR/rsa_cert.pem"
+PRIV="$KEYS_DIR/rsa_private.pem"
+
+# create keys if necessary
+if [ ! -f "$PRIV" ] || [ ! -f "$CERT" ]; then
+    echo "  generating cloud keys..."
+    mkdir -p "$KEYS_DIR"
+    openssl req -x509 -nodes -newkey rsa:2048 -keyout "${PRIV}.tmp" \
+            -days 1000000 -out "${CERT}.tmp" -subj "/CN=unused"
+
+    mv -f "${PRIV}.tmp" "${PRIV}"
+    mv -f "${CERT}.tmp" "${CERT}"
+    sync "${CERT}" "$KEYS_DIR" "${PRIV}"
+fi
