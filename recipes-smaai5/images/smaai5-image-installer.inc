@@ -21,15 +21,6 @@ IMAGE_INSTALL += " \
     ${MACHINE_ESSENTIAL_EXTRA_RDEPENDS} \
 "
 
-copy_smaai5_image_files() {
-    local dest_dirname=installer-data
-    local dest=${IMAGE_ROOTFS}/$dest_dirname
-    mkdir -p $dest
-
-    cp ${DEPLOY_DIR_IMAGE}/${SMAAI5_INSTALLER_IMAGE_ROOTFS}.wic.bmap $dest/img.wic.bmap
-    cp ${DEPLOY_DIR_IMAGE}/${SMAAI5_INSTALLER_IMAGE_ROOTFS}.wic.xz $dest/img.wic.xz
-}
-
 remove_fstab() {
    rm -f ${IMAGE_ROOTFS}/${sysconfdir}/fstab
 }

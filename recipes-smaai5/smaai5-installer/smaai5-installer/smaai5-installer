@@ -29,7 +29,13 @@ run_install() {
         echo "ERROR! eMMC device not found!!!"
         die
     fi
-    bmaptool copy img.wic.xz "$EMMC" || die
+
+    EMMC_SIZE=$(cat /sys/block/mmcblk1/size)
+    if [ "$EMMC_SIZE" -gt 6291456 ]; then
+        bmaptool copy img.wic.xz "$EMMC" || die
+    else
+        bmaptool copy img-2gb.wic.xz "$EMMC" || die
+    fi
 }
 
 if run_install ; then
