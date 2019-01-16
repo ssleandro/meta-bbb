@@ -1,0 +1,51 @@
+#!/bin/sh
+# -*- shell-script -*-
+
+SERVER="https://ci.ossystems.com.br/f/823268cddf7630c4224d1ad2279e1b1f7dd45defa5f347eb4f9bedf73feb398b/images/"
+
+EMMC="/dev/mmcblk0"
+EMMC_SIZE=$(cat /sys/block/mmcblk0/size)
+
+set_leds() {
+    if [ -e /sys/class/leds/beaglebone\:green\:usr0/trigger ] ; then
+        echo $1 > /sys/class/leds/beaglebone\:green\:usr0/trigger
+        echo $1 > /sys/class/leds/beaglebone\:green\:usr1/trigger
+        echo $1 > /sys/class/leds/beaglebone\:green\:usr2/trigger
+        echo $1 > /sys/class/leds/beaglebone\:green\:usr3/trigger
+    fi
+}
+
+die() {
+    set_leds none
+    while true; do
+        sleep 1
+    done
+}
+
+success() {
+    set_leds default-on
+    while true; do
+        sleep 1
+    done
+}
+
+smaai5_enabled() {
+    return 0
+}
+
+smaai5_run() {
+    export PATH
+    set_leds heartbeat || die
+    udhcpc -n -t 60 || die
+    if [ "$EMMC_SIZE" -gt 6291456 ]; then
+        wget --no-check-certificate -q --spider "$SERVER"/smaai5-image-smaai5-am335x.wic.xz || die
+        wget --no-check-certificate -q "$SERVER"/smaai5-image-smaai5-am335x.wic.xz || die
+        wget --no-check-certificate -q "$SERVER"/smaai5-image-smaai5-am335x.wic.bmap || die
+        bmaptool copy smaai5-image-smaai5-am335x.wic.xz "$EMMC" && success || die
+    else
+        wget --no-check-certificate -q --spider "$SERVER"/smaai5-image-2gb-smaai5-am335x.wic.xz || die
+        wget --no-check-certificate -q "$SERVER"/smaai5-image-2gb-smaai5-am335x.wic.xz || die
+        wget --no-check-certificate -q "$SERVER"/smaai5-image-2gb-smaai5-am335x.wic.bmap || die
+        bmaptool copy smaai5-image-2gb-smaai5-am335x.wic.xz "$EMMC" && success || die
+    fi
+}
