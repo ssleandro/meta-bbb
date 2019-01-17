@@ -1,5 +1,7 @@
 require smaai5.inc
 
+SYSTEMD_AUTO_ENABLE = "disable"
+
 RDEPENDS_${PN} += " \
     python-asn1crypto \
     python-cffi \
