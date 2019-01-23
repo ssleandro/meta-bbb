@@ -51,13 +51,13 @@ echo "" > $base/conf/smaai5-srcrev.conf
 
 #    cmd          recipe            repository         branch
 record_srcrev     adc               adc                master
-record_srcrev     airflow           airflow            master
-record_srcrev     alarm             alarm              master
+record_srcrev     airflow           airflow            modbus-v2.0
+record_srcrev     alarm             alarm              modbus-v2.0
 record_srcrev     buzzer            buzzer             master
 record_srcrev     co2               co2                master
 record_srcrev     curtain           curtain            master
 record_srcrev     disarm            disarm             master
-record_srcrev     display           display            master
+record_srcrev     display           display            modbus-v2.0
 record_srcrev     exhauster         exhauster          master
 record_srcrev     heater            heater             master
 record_srcrev     hooter            hooter             master
