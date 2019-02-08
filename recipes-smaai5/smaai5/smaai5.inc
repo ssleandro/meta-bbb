@@ -27,7 +27,7 @@ do_install() {
     done
 }
 
-pkg_postinst_${PN}() {
+pkg_postinst_ontarget_${PN}() {
     dbscript=`echo /usr/lib/${PN}/db.py | sed 's,-,_,g'`
 
     if [ -n "$D" ] && [ -e "$D$dbscript" ]; then
