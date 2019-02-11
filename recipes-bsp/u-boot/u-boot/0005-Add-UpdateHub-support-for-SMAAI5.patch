@@ -1,0 +1,201 @@
+From dc08477ecd63fa07e9ed2ac9a3ba63a48f908a9b Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Tue, 10 Apr 2018 09:14:48 -0300
+Subject: [PATCH 5/5] Add UpdateHub support for SMAAI5
+Organization: O.S. Systems Software LTDA.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ configs/am335x_evm_defconfig       | 12 +---
+ include/configs/am335x_evm.h       | 92 +++++++++++++++++++++++++++---
+ include/configs/updatehub-common.h |  4 +-
+ 3 files changed, 90 insertions(+), 18 deletions(-)
+
+diff --git a/configs/am335x_evm_defconfig b/configs/am335x_evm_defconfig
+index 70e97f34d9..718ba43f2c 100644
+--- a/configs/am335x_evm_defconfig
++++ b/configs/am335x_evm_defconfig
+@@ -4,6 +4,7 @@ CONFIG_TI_COMMON_CMD_OPTIONS=y
+ CONFIG_AM33XX=y
+ CONFIG_SPL=y
+ CONFIG_DISTRO_DEFAULTS=y
++CONFIG_SYS_EXTRA_OPTIONS="EMMC_BOOT"
+ CONFIG_BOOTCOMMAND="if test ${boot_fit} -eq 1; then run update_to_fit; fi; run findfdt; run init_console; run envboot; run distro_bootcmd"
+ CONFIG_SYS_CONSOLE_INFO_QUIET=y
+ CONFIG_VERSION_VARIABLE=y
+@@ -17,15 +18,12 @@ CONFIG_AUTOBOOT_DELAY_STR="d"
+ CONFIG_AUTOBOOT_STOP_STR=" "
+ CONFIG_CMD_SPL=y
+ # CONFIG_CMD_FLASH is not set
+-CONFIG_CMD_SETEXPR=y
+ CONFIG_CMD_BTRFS=y
+ # CONFIG_ENV_IS_IN_FAT is not set
+-CONFIG_ENV_IS_IN_EXT4=y
++CONFIG_ENV_IS_IN_MMC=y
+ CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG=y
+-CONFIG_ENV_EXT4_INTERFACE="mmc"
+-CONFIG_ENV_EXT4_DEVICE_AND_PART="0:1"
+-CONFIG_ENV_EXT4_FILE="/boot/uboot.env"
+ CONFIG_BOOTCOUNT_LIMIT=y
++CONFIG_BOOTCOUNT_ENV=y
+ CONFIG_DFU_TFTP=y
+ CONFIG_DFU_MMC=y
+ CONFIG_DFU_RAM=y
+@@ -36,8 +34,6 @@ CONFIG_FASTBOOT_CMD_OEM_FORMAT=y
+ CONFIG_MMC_OMAP_HS=y
+ CONFIG_SPI_FLASH=y
+ CONFIG_SPI_FLASH_WINBOND=y
+-CONFIG_DRIVER_TI_CPSW=y
+-CONFIG_PHY_MSCC=y
+ CONFIG_SYS_NS16550=y
+ CONFIG_SPI=y
+ CONFIG_OMAP3_SPI=y
+@@ -52,6 +48,4 @@ CONFIG_USB_GADGET_VENDOR_NUM=0x0451
+ CONFIG_USB_GADGET_PRODUCT_NUM=0xd022
+ CONFIG_USB_ETHER=y
+ CONFIG_USBNET_HOST_ADDR="de:ad:be:af:00:00"
+-CONFIG_FS_BTRFS=y
+-CONFIG_LZO=y
+ CONFIG_OF_LIBFDT=y
+diff --git a/include/configs/am335x_evm.h b/include/configs/am335x_evm.h
+index e55736ebf7..880243099e 100644
+--- a/include/configs/am335x_evm.h
++++ b/include/configs/am335x_evm.h
+@@ -34,8 +34,8 @@
+ /* Custom script for NOR */
+ #define CONFIG_SYS_LDSCRIPT		"board/ti/am335x/u-boot.lds"
+ 
+-/* Always 128 KiB env size */
+-#define CONFIG_ENV_SIZE			SZ_128K
++/* Always 64 KiB env size */
++#define CONFIG_ENV_SIZE			(64 << 10)
+ 
+ #ifdef CONFIG_NAND
+ #define NANDARGS \
+@@ -244,6 +244,86 @@
+ 	BOOTENV
+ #endif
+ 
++/*
++ * UpdateHub configuration
++ */
++
++#undef CONFIG_BOOTCOMMAND
++
++/* Environment */
++#define UPDATEHUB_LOAD_OS_A     "run runbootenv; load mmc 1:1 ${loadaddr} /boot/${bootfile}; " \
++                                "load mmc 1:1 ${fdtaddr} /boot/${fdtfile}; " \
++                                \
++                                "load mmc 1:1 ${rdaddr} /lib/firmware/univ-bbb-Exx-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:1 ${rdaddr} /lib/firmware/ADAFRUIT-SPI0-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:1 ${rdaddr} /lib/firmware/BB-BONE-eMMC1-01-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:1 ${rdaddr} /lib/firmware/BB-ADC-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:1 ${rdaddr} /lib/firmware/BB-UART1-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:1 ${rdaddr} /lib/firmware/BB-UART4-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; "
++#define UPDATEHUB_FIND_ROOT_A   "part uuid mmc 1:1 uuid"
++
++#define UPDATEHUB_LOAD_OS_B     "run runbootenv; load mmc 1:2 ${loadaddr} /boot/${bootfile}; " \
++                                "load mmc 1:2 ${fdtaddr} /boot/${fdtfile}; " \
++                                \
++                                "load mmc 1:2 ${rdaddr} /lib/firmware/univ-bbb-Exx-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:2 ${rdaddr} /lib/firmware/ADAFRUIT-SPI0-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:2 ${rdaddr} /lib/firmware/BB-BONE-eMMC1-01-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:2 ${rdaddr} /lib/firmware/BB-ADC-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:2 ${rdaddr} /lib/firmware/BB-UART1-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; " \
++                                \
++                                "load mmc 1:2 ${rdaddr} /lib/firmware/BB-UART4-00A0.dtbo; " \
++                                "fdt addr ${fdtaddr}; fdt resize ${fdt_buffer}; " \
++                                "fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; "
++#define UPDATEHUB_FIND_ROOT_B   "part uuid mmc 1:2 uuid"
++
++#define UPDATEHUB_BOOTARGS      "console=${console} root=PARTUUID=${uuid} bone_capemgr.uboot_capemgr_enabled=1 " \
++                                "coherent_pool=1M net.ifnames=0 rootfstype=ext4 rootwait rw quiet"
++#define UPDATEHUB_BOOTCMD       "bootz ${loadaddr} - ${fdtaddr}"
++
++#include <configs/updatehub-common.h>
++
++#undef CONFIG_EXTRA_ENV_SETTINGS
++#define CONFIG_EXTRA_ENV_SETTINGS \
++    DEFAULT_LINUX_BOOT_ENV \
++    "bootfile=zImage\0" \
++    "fdtfile=am335x-boneblack-uboot.dtb\0" \
++    "console=ttyS0,115200n8\0" \
++    "fdt_buffer=0x60000\0" \
++    "runbootenv=if load mmc 0:1 ${loadaddr} boot/uEnv.txt; " \
++    "then env import -t $loadaddr $filesize; run bootcmd ; fi\0" \
++    UPDATEHUB_ENV
++
+ /* NS16550 Configuration */
+ #define CONFIG_SYS_NS16550_COM1		0x44e09000	/* Base EVM has UART0 */
+ #define CONFIG_SYS_NS16550_COM2		0x48022000	/* UART1 */
+@@ -262,8 +342,6 @@
+ 
+ /* SPL */
+ #ifndef CONFIG_NOR_BOOT
+-/* Bootcount using the RTC block */
+-#define CONFIG_SYS_BOOTCOUNT_BE
+ 
+ /* USB gadget RNDIS */
+ #endif
+@@ -365,10 +443,8 @@
+ #define CONFIG_ENV_OFFSET_REDUND	(896 << 10) /* 896 KiB in */
+ #elif defined(CONFIG_EMMC_BOOT)
+ #define CONFIG_SYS_MMC_ENV_DEV		1
+-#define CONFIG_SYS_MMC_ENV_PART		0
+-#define CONFIG_ENV_OFFSET		0x260000
+-#define CONFIG_ENV_OFFSET_REDUND	(CONFIG_ENV_OFFSET + CONFIG_ENV_SIZE)
+-#define CONFIG_SYS_REDUNDAND_ENVIRONMENT
++#define CONFIG_ENV_SECT_SIZE		(4 * 1024) /* 4 KB sectors */
++#define CONFIG_ENV_OFFSET		    (4 * 1024) /* 4 KiB in */
+ #define CONFIG_SYS_MMC_MAX_DEVICE	2
+ #elif defined(CONFIG_SD_BOOT)
+ #define CONFIG_ENV_IS_IN_FAT
+diff --git a/include/configs/updatehub-common.h b/include/configs/updatehub-common.h
+index 21c7896fec..b58076f223 100644
+--- a/include/configs/updatehub-common.h
++++ b/include/configs/updatehub-common.h
+@@ -13,7 +13,9 @@
+ #ifndef __UPDATEHUB_H
+ #define __UPDATEHUB_H
+ 
+-#define CONFIG_BOOTCOUNT_LIMIT
++#ifndef CONFIG_BOOTCOUNT_LIMIT
++# error Boot count limit is required for UpdateHub use
++#endif
+ 
+ #ifdef CONFIG_ENV_IS_NOWHERE
+ # error Environment saving is required for UpdateHub use
+-- 
+2.20.1
+
