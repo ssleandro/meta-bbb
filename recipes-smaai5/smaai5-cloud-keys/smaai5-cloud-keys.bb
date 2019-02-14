@@ -18,4 +18,4 @@ do_install() {
     install -Dm 0644 ${WORKDIR}/smaai5-generate-cloud-keys.service ${D}${systemd_unitdir}/system/smaai5-generate-cloud-keys.service
 }
 
-RDEPENDS_${PN} += "openssl"
+RDEPENDS_${PN} += "openssl-bin"
