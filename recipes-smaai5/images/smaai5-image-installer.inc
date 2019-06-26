@@ -1,5 +1,5 @@
 DESCRIPTION = "Image to write the SMAAI5 image to eMMC."
-LICENSE = "CLOSE"
+LICENSE = "CLOSED"
 
 # Avoid installation of syslog
 BAD_RECOMMENDATIONS += "busybox-syslog"
