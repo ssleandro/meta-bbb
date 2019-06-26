@@ -8,4 +8,4 @@ SRC_URI += " \
     file://0005-Add-UpdateHub-support-for-SMAAI5.patch \
 "
 
-UBOOT_LOCALVERSION = "inobram1"
+UBOOT_LOCALVERSION = "inobram2"
