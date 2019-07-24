@@ -7,8 +7,8 @@ DEPENDS += "dtc-native"
 
 PYPI_PACKAGE = "Adafruit_BBIO"
 
-SRC_URI[md5sum] = "6457afb1450fd831be1f345df95a7fb6"
-SRC_URI[sha256sum] = "f4e78c3c93af52b90129fc01bd006d704e877bcbfaa0b473c6850e4cd09ff26a"
+SRC_URI[md5sum] = "6a0c286bfb5cb613e25a2e0ffa7da9a7"
+SRC_URI[sha256sum] = "6c3a11f9a84653537e09e2e70311b9d3a6f57d98838b2157b9a65ce0f52b4a85"
 
 inherit setuptools pypi
 
