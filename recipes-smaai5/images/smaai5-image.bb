@@ -19,6 +19,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     git \
     htop \
     less \
+    python-speedtest-cli \
     sudo \
     systemd-analyze \
     \
