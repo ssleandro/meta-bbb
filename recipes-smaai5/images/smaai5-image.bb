@@ -22,6 +22,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     python-speedtest-cli \
     sudo \
     systemd-analyze \
+    packagegroup-shellhub-runtime \
     \
     updatehub-ctl \
 "
