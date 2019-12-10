@@ -6,11 +6,11 @@ This is a modified version of the code originally found\
 All code is GPLv2 licensed unless explicitly stated otherwise."
 HOMEPAGE = "http://github.com/doceme/py-spidev"
 SECTION = "devel/python"
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=54bdb9022ebb75ab68399cdaab97da60"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 SRCNAME = "spidev"
 
-SRC_URI[md5sum] = "f601676f1bb48b9aa3b3897f95216365"
-SRC_URI[sha256sum] = "09d2b5122f0dd79910713a11f9a0020f71537224bf829916def4fffc0ea59456"
+SRC_URI[md5sum] = "bbab6352449f1d572cc9eefeafc58bd1"
+SRC_URI[sha256sum] = "4314e52f573d95233c907f307558893313a8a606e197e77bb711526b0e179e80"
 
 inherit pypi
