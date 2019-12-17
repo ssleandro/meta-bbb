@@ -1,0 +1,27 @@
+From 390b2c735547d8ea09610a81571c6a00a9e6ad57 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Tue, 17 Dec 2019 14:40:22 -0300
+Subject: [PATCH] tools: Include U-Boot libfdt headers from their actual path
+Organization: O.S. Systems Software LTDA.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ tools/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/Makefile b/tools/Makefile
+index 4d32fe5910..77370a3f4f 100644
+--- a/tools/Makefile
++++ b/tools/Makefile
+@@ -240,7 +240,7 @@ endif # !LOGO_BMP
+ #
+ HOST_EXTRACFLAGS += -include $(srctree)/include/libfdt_env.h \
+ 		$(patsubst -I%,-idirafter%, $(filter -I%, $(UBOOTINCLUDE))) \
+-		-I$(srctree)/lib/libfdt \
++		-I$(srctree)/scripts/dtc/libfdt \
+ 		-I$(srctree)/tools \
+ 		-DUSE_HOSTCC \
+ 		-D__KERNEL_STRICT_NAMES \
+-- 
+2.20.1
+
