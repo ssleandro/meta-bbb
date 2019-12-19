@@ -1,6 +1,6 @@
 require smaai5.inc
 
 RDEPENDS_${PN} += " \
-    python-datetime \
-    python-db \
+    python3-datetime \
+    python3-db \
 "

@@ -8,5 +8,5 @@ FILES_${PN}-function += "${systemd_system_unitdir}/${PN}-function-control.socket
 
 RDEPENDS_${PN} += " \
     ${PN}-function \
-    python-pyserial \
+    python3-pyserial \
 "

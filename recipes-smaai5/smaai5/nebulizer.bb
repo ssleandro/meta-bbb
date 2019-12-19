@@ -7,5 +7,5 @@ PACKAGES += "${PN}-manager"
 
 RDEPENDS_${PN} += " \
     ${PN}-manager \
-    python-datetime \
+    python3-datetime \
 "

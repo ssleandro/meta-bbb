@@ -3,17 +3,16 @@ require smaai5.inc
 SYSTEMD_SERVICE_${PN} = "${PN}.timer"
 
 RDEPENDS_${PN} += " \
-    python-crypt \
-    python-datetime \
-    python-flask \
-    python-flask-jsonpify \
-    python-flask-jwt \
-    python-gunicorn \
-    python-io \
-    python-json \
-    python-lang \
-    python-pyjwt \
-    python-sqlite3 \
-    python-werkzeug \
+    python3-crypt \
+    python3-datetime \
+    python3-flask \
+    python3-flask-jsonpify \
+    python3-flask-jwt \
+    python3-gunicorn \
+    python3-io \
+    python3-json \
+    python3-pyjwt \
+    python3-sqlite3 \
+    python3-werkzeug \
     sqlite3 \
 "

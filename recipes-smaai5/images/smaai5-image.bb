@@ -19,7 +19,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     git \
     htop \
     less \
-    python-speedtest-cli \
+    python3-speedtest-cli \
     sudo \
     systemd-analyze \
     packagegroup-shellhub-runtime \

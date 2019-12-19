@@ -1,6 +1,7 @@
 require smaai5.inc
 
 SRC_URI += " \
+    file://0001-keyboard-Use-Python3.patch \
     file://99-stick.rules \
 "
 

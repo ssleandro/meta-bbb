@@ -1,5 +1,5 @@
 require smaai5.inc
 
 RDEPENDS_${PN} += " \
-    python-pyserial \
+    python3-pyserial \
 "

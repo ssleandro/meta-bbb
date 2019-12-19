@@ -10,7 +10,6 @@ FILES_${PN}m += "${systemd_system_unitdir}/${PN}m.service"
 
 RDEPENDS_${PN} += " \
     ${PN}m \
-    python-httplib2 \
-    python-io \
-    python-subprocess \
+    python3-httplib2 \
+    python3-io \
 "

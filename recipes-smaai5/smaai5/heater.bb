@@ -7,6 +7,6 @@ PACKAGES += "${PN}-manager"
 
 RDEPENDS_${PN} += " \
     ${PN}-manager \
-    python-datetime \
-    python-db \
+    python3-datetime \
+    python3-db \
 "

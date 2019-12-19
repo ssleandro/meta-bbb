@@ -8,6 +8,6 @@ PACKAGES += "${PN}-fail"
 
 RDEPENDS_${PN} += " \
     ${PN}-fail \
-    python-datetime \
-    python-db \
+    python3-datetime \
+    python3-db \
 "

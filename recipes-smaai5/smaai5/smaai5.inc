@@ -47,8 +47,8 @@ FILES_${PN} += " \
 FILES_${PN}-manager += "${systemd_system_unitdir}/${PN}-manager-control.socket"
 
 RDEPENDS_${PN} += " \
-    python-core \
-    python-distutils \
-    python-gevent \
-    python-redis \
+    python3-core \
+    python3-distutils \
+    python3-gevent \
+    python3-redis \
 "

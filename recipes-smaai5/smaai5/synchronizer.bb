@@ -4,8 +4,7 @@ SYSTEMD_SERVICE_${PN} = "${PN}.timer"
 
 RDEPENDS_${PN} += " \
     nmap \
-    python-json \
-    python-sqlite3 \
-    python-re \
+    python3-json \
+    python3-sqlite3 \
     sqlite3 \
 "

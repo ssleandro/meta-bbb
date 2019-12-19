@@ -1,6 +1,6 @@
 require smaai5.inc
 
 RDEPENDS_${PN} += " \
-    python-adafruit-beaglebone-io \
-    python-db \
+    python3-adafruit-beaglebone-io \
+    python3-db \
 "
