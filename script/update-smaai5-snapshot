@@ -65,7 +65,7 @@ record_srcrev     hour              hour               master
 record_srcrev     inlet             inlet              master
 record_srcrev     inverter          inverter           master
 record_srcrev     lot               lot                master
-record_srcrev     modbus            modbus             master
+record_srcrev     modbusfans        modbusfans         master
 record_srcrev     nebulizer         nebulizer          master
 record_srcrev     ngrok             ngrok              master
 record_srcrev     poweroff          poweroff           master

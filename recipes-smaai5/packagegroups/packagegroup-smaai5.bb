@@ -21,7 +21,7 @@ RDEPENDS_${PN} += " \
     inlet \
     inverter \
     lot \
-    modbus \
+    modbusfans \
     nebulizer \
     ngrok \
     poweroff \
