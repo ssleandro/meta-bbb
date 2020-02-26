@@ -14,3 +14,6 @@ FILES_${PN} += "\
     ${sysconfdir}/systemd/journald.conf.d/size.conf \
     ${sysconfdir}/systemd/system.conf.d/watchdog.conf \
 "
+
+FILES_${PN} += "${sysconfdir}/systemd/journald.conf.d/size.conf"
+
