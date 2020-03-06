@@ -6,7 +6,7 @@ inherit kernel siteinfo
 
 S = "${WORKDIR}/git"
 
-PV = "4.14.108-ti-r126"
+PV = "4.14.108-ti-r127"
 
 SRC_URI = " \
     git://github.com/beagleboard/linux.git;nobranch=1;tag=${PV} \
