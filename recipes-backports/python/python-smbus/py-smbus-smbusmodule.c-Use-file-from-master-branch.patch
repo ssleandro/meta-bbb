@@ -1,0 +1,234 @@
+From 334e9fe0476f4e0a5806c8cbe9f5acb9a9ce8f44 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Mon, 9 Mar 2020 15:15:18 -0300
+Subject: [PATCH] py-smbus/smbusmodule.c: Use file from master branch
+Organization: O.S. Systems Software LTDA.
+
+Without this file build fails with error:
+
+| smbusmodule.c: In function 'SMBus_write_quick':
+| smbusmodule.c:192:16: warning: implicit declaration of function 'i2c_smbus_write_quick'; did you mean 'SMBus_write_quick'? [-Wimplicit-function-declaration]
+|   192 |  if ((result = i2c_smbus_write_quick(self->fd, I2C_SMBUS_WRITE))) {
+|       |                ^~~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_write_quick
+| smbusmodule.c:192:48: error: 'I2C_SMBUS_WRITE' undeclared (first use in this function)
+|   192 |  if ((result = i2c_smbus_write_quick(self->fd, I2C_SMBUS_WRITE))) {
+|       |                                                ^~~~~~~~~~~~~~~
+| smbusmodule.c:192:48: note: each undeclared identifier is reported only once for each function it appears in
+| smbusmodule.c:185:8: warning: variable 'result' set but not used [-Wunused-but-set-variable]
+|   185 |  __s32 result;
+|       |        ^~~~~~
+| smbusmodule.c: In function 'SMBus_read_byte':
+| smbusmodule.c:216:16: warning: implicit declaration of function 'i2c_smbus_read_byte'; did you mean 'SMBus_read_byte'? [-Wimplicit-function-declaration]
+|   216 |  if ((result = i2c_smbus_read_byte(self->fd)) == -1) {
+|       |                ^~~~~~~~~~~~~~~~~~~
+|       |                SMBus_read_byte
+| smbusmodule.c: In function 'SMBus_write_byte':
+| smbusmodule.c:239:16: warning: implicit declaration of function 'i2c_smbus_write_byte'; did you mean 'SMBus_write_byte'? [-Wimplicit-function-declaration]
+|   239 |  if ((result = i2c_smbus_write_byte(self->fd, (__u8)val)) == -1) {
+|       |                ^~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_write_byte
+| smbusmodule.c: In function 'SMBus_read_byte_data':
+| smbusmodule.c:263:16: warning: implicit declaration of function 'i2c_smbus_read_byte_data'; did you mean 'SMBus_read_byte_data'? [-Wimplicit-function-declaration]
+|   263 |  if ((result = i2c_smbus_read_byte_data(self->fd, (__u8)cmd)) == -1) {
+|       |                ^~~~~~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_read_byte_data
+| smbusmodule.c: In function 'SMBus_write_byte_data':
+| smbusmodule.c:286:16: warning: implicit declaration of function 'i2c_smbus_write_byte_data'; did you mean 'SMBus_write_byte_data'? [-Wimplicit-function-declaration]
+|   286 |  if ((result = i2c_smbus_write_byte_data(self->fd,
+|       |                ^~~~~~~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_write_byte_data
+| smbusmodule.c: In function 'SMBus_read_word_data':
+| smbusmodule.c:311:16: warning: implicit declaration of function 'i2c_smbus_read_word_data'; did you mean 'SMBus_read_word_data'? [-Wimplicit-function-declaration]
+|   311 |  if ((result = i2c_smbus_read_word_data(self->fd, (__u8)cmd)) == -1) {
+|       |                ^~~~~~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_read_word_data
+| smbusmodule.c: In function 'SMBus_write_word_data':
+| smbusmodule.c:334:16: warning: implicit declaration of function 'i2c_smbus_write_word_data'; did you mean 'SMBus_write_word_data'? [-Wimplicit-function-declaration]
+|   334 |  if ((result = i2c_smbus_write_word_data(self->fd,
+|       |                ^~~~~~~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_write_word_data
+| smbusmodule.c: In function 'SMBus_process_call':
+| smbusmodule.c:359:16: warning: implicit declaration of function 'i2c_smbus_process_call'; did you mean 'SMBus_process_call'? [-Wimplicit-function-declaration]
+|   359 |  if ((result = i2c_smbus_process_call(self->fd,
+|       |                ^~~~~~~~~~~~~~~~~~~~~~
+|       |                SMBus_process_call
+| smbusmodule.c: In function 'SMBus_read_block_data':
+| smbusmodule.c:396:23: error: storage size of 'data' isn't known
+|   396 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c:404:6: warning: implicit declaration of function 'i2c_smbus_access' [-Wimplicit-function-declaration]
+|   404 |  if (i2c_smbus_access(self->fd, I2C_SMBUS_READ, (__u8)cmd,
+|       |      ^~~~~~~~~~~~~~~~
+| smbusmodule.c:404:33: error: 'I2C_SMBUS_READ' undeclared (first use in this function); did you mean 'I2C_SMBUS'?
+|   404 |  if (i2c_smbus_access(self->fd, I2C_SMBUS_READ, (__u8)cmd,
+|       |                                 ^~~~~~~~~~~~~~
+|       |                                 I2C_SMBUS
+| smbusmodule.c:405:5: error: 'I2C_SMBUS_BLOCK_DATA' undeclared (first use in this function); did you mean 'I2C_SMBUS_I2C_BLOCK_DATA'?
+|   405 |     I2C_SMBUS_BLOCK_DATA, &data)) {
+|       |     ^~~~~~~~~~~~~~~~~~~~
+|       |     I2C_SMBUS_I2C_BLOCK_DATA
+| smbusmodule.c:396:23: warning: unused variable 'data' [-Wunused-variable]
+|   396 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c: In function 'SMBus_list_to_data':
+| smbusmodule.c:435:6: error: dereferencing pointer to incomplete type 'union i2c_smbus_data'
+|   435 |  data->block[0] = (__u8)len;
+|       |      ^~
+| smbusmodule.c: In function 'SMBus_write_block_data':
+| smbusmodule.c:465:23: error: storage size of 'data' isn't known
+|   465 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c:474:33: error: 'I2C_SMBUS_WRITE' undeclared (first use in this function)
+|   474 |  if (i2c_smbus_access(self->fd, I2C_SMBUS_WRITE, (__u8)cmd,
+|       |                                 ^~~~~~~~~~~~~~~
+| smbusmodule.c:475:5: error: 'I2C_SMBUS_BLOCK_DATA' undeclared (first use in this function); did you mean 'I2C_SMBUS_I2C_BLOCK_DATA'?
+|   475 |     I2C_SMBUS_BLOCK_DATA, &data)) {
+|       |     ^~~~~~~~~~~~~~~~~~~~
+|       |     I2C_SMBUS_I2C_BLOCK_DATA
+| smbusmodule.c:465:23: warning: unused variable 'data' [-Wunused-variable]
+|   465 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c: In function 'SMBus_block_process_call':
+| smbusmodule.c:492:23: error: storage size of 'data' isn't known
+|   492 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c:501:33: error: 'I2C_SMBUS_WRITE' undeclared (first use in this function)
+|   501 |  if (i2c_smbus_access(self->fd, I2C_SMBUS_WRITE, (__u8)cmd,
+|       |                                 ^~~~~~~~~~~~~~~
+| smbusmodule.c:502:5: error: 'I2C_SMBUS_BLOCK_PROC_CALL' undeclared (first use in this function)
+|   502 |     I2C_SMBUS_BLOCK_PROC_CALL, &data)) {
+|       |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+| smbusmodule.c:492:23: warning: unused variable 'data' [-Wunused-variable]
+|   492 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c: In function 'SMBus_read_i2c_block_data':
+| smbusmodule.c:519:23: error: storage size of 'data' isn't known
+|   519 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c:529:33: error: 'I2C_SMBUS_READ' undeclared (first use in this function); did you mean 'I2C_SMBUS'?
+|   529 |  if (i2c_smbus_access(self->fd, I2C_SMBUS_READ, (__u8)cmd,
+|       |                                 ^~~~~~~~~~~~~~
+|       |                                 I2C_SMBUS
+| smbusmodule.c:519:23: warning: unused variable 'data' [-Wunused-variable]
+|   519 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c: In function 'SMBus_write_i2c_block_data':
+| smbusmodule.c:548:23: error: storage size of 'data' isn't known
+|   548 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c:557:33: error: 'I2C_SMBUS_WRITE' undeclared (first use in this function)
+|   557 |  if (i2c_smbus_access(self->fd, I2C_SMBUS_WRITE, (__u8)cmd,
+|       |                                 ^~~~~~~~~~~~~~~
+| smbusmodule.c:548:23: warning: unused variable 'data' [-Wunused-variable]
+|   548 |  union i2c_smbus_data data;
+|       |                       ^~~~
+| smbusmodule.c: In function 'SMBus_read_i2c_block_data':
+| smbusmodule.c:538:1: warning: control reaches end of non-void function [-Wreturn-type]
+|   538 | }
+|       | ^
+| smbusmodule.c: In function 'SMBus_block_process_call':
+| smbusmodule.c:509:1: warning: control reaches end of non-void function [-Wreturn-type]
+|   509 | }
+|       | ^
+| smbusmodule.c: In function 'SMBus_read_block_data':
+| smbusmodule.c:412:1: warning: control reaches end of non-void function [-Wreturn-type]
+|   412 | }
+|       | ^
+| error: command 'arm-smaai5-linux-gnueabi-gcc' failed with exit status 1
+| WARNING: exit code 1 from a shell command.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ smbusmodule.c | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+
+diff --git a/smbusmodule.c b/smbusmodule.c
+index f81e280..34af992 100644
+--- a/smbusmodule.c
++++ b/smbusmodule.c
+@@ -13,7 +13,8 @@
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this program; if not, write to the Free Software
+- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
++ * MA 02110-1301, USA.
+  */
+
+ #include <Python.h>
+@@ -22,7 +23,9 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <fcntl.h>
++#include <linux/i2c.h>
+ #include <linux/i2c-dev.h>
++#include <i2c/smbus.h>
+
+ /*
+ ** These are required to build this module against Linux older than 2.6.23.
+@@ -213,7 +216,7 @@ SMBus_read_byte(SMBus *self, PyObject *args)
+
+ 	SMBus_SET_ADDR(self, addr);
+
+-	if ((result = i2c_smbus_read_byte(self->fd)) == -1) {
++	if ((result = i2c_smbus_read_byte(self->fd)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+@@ -236,7 +239,7 @@ SMBus_write_byte(SMBus *self, PyObject *args)
+
+ 	SMBus_SET_ADDR(self, addr);
+
+-	if ((result = i2c_smbus_write_byte(self->fd, (__u8)val)) == -1) {
++	if ((result = i2c_smbus_write_byte(self->fd, (__u8)val)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+@@ -260,7 +263,7 @@ SMBus_read_byte_data(SMBus *self, PyObject *args)
+
+ 	SMBus_SET_ADDR(self, addr);
+
+-	if ((result = i2c_smbus_read_byte_data(self->fd, (__u8)cmd)) == -1) {
++	if ((result = i2c_smbus_read_byte_data(self->fd, (__u8)cmd)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+@@ -284,7 +287,7 @@ SMBus_write_byte_data(SMBus *self, PyObject *args)
+ 	SMBus_SET_ADDR(self, addr);
+
+ 	if ((result = i2c_smbus_write_byte_data(self->fd,
+-				(__u8)cmd, (__u8)val)) == -1) {
++				(__u8)cmd, (__u8)val)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+@@ -308,7 +311,7 @@ SMBus_read_word_data(SMBus *self, PyObject *args)
+
+ 	SMBus_SET_ADDR(self, addr);
+
+-	if ((result = i2c_smbus_read_word_data(self->fd, (__u8)cmd)) == -1) {
++	if ((result = i2c_smbus_read_word_data(self->fd, (__u8)cmd)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+@@ -332,7 +335,7 @@ SMBus_write_word_data(SMBus *self, PyObject *args)
+ 	SMBus_SET_ADDR(self, addr);
+
+ 	if ((result = i2c_smbus_write_word_data(self->fd,
+-				(__u8)cmd, (__u16)val)) == -1) {
++				(__u8)cmd, (__u16)val)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+@@ -357,7 +360,7 @@ SMBus_process_call(SMBus *self, PyObject *args)
+ 	SMBus_SET_ADDR(self, addr);
+
+ 	if ((result = i2c_smbus_process_call(self->fd,
+-				(__u8)cmd, (__u16)val)) == -1) {
++				(__u8)cmd, (__u16)val)) < 0) {
+ 		PyErr_SetFromErrno(PyExc_IOError);
+ 		return NULL;
+ 	}
+--
+2.25.1
