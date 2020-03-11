@@ -7,8 +7,8 @@ DEPENDS += "dtc-native"
 
 PYPI_PACKAGE = "Adafruit_BBIO"
 
-SRC_URI[md5sum] = "6a0c286bfb5cb613e25a2e0ffa7da9a7"
-SRC_URI[sha256sum] = "6c3a11f9a84653537e09e2e70311b9d3a6f57d98838b2157b9a65ce0f52b4a85"
+SRC_URI[md5sum] = "75c676577216244b74958d02900480b5"
+SRC_URI[sha256sum] = "9e8255aefb3470706ca2bb63432e4ceb697de2ab1b0be69904456840da0dafd8"
 
 inherit pypi
 
