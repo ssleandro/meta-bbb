@@ -1,0 +1,30 @@
+From 3244261647d491f67884a3ae4952cfc2e49b6245 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Thu, 21 May 2020 11:19:33 -0300
+Subject: [PATCH] repo: Change env to use python3
+Organization: O.S. Systems Software LTDA.
+
+Currently the python command invokes Python2 and not Python3 that is
+needed to run repo. Use this patch until Yocto creates a link to python
+-> python3
+
+Upstream-Status: Inappropriate [embedded specific]
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ repo | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/repo b/repo
+index be59c87..6251b90 100755
+--- a/repo
++++ b/repo
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ # -*- coding:utf-8 -*-
+ #
+ # Copyright (C) 2008 The Android Open Source Project
+-- 
+2.26.2
+

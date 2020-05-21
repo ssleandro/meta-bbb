@@ -7,6 +7,7 @@ DESCRIPTION = "SMAAI5 Development Image"
 CORE_IMAGE_EXTRA_INSTALL += " \
     make \
     openssh-sftp-server \
+    python-repo \
     tree \
     vim \
 "
