@@ -2,13 +2,18 @@ DESCRIPTION = "Linux kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-inherit kernel siteinfo
+DEPENDS += "lzop-native bc-native"
+
+inherit kernel kernel-yocto
 
 S = "${WORKDIR}/git"
 
-PV = "4.14.108-ti-r127"
+LINUX_VERSION = "4.14.108-ti-r136"
+KBRANCH = "${LINUX_VERSION}"
+PV = "${LINUX_VERSION}+git${SRCPV}"
 
-SRC_URI = " \
-    git://github.com/beagleboard/linux.git;nobranch=1;tag=${PV} \
-    file://defconfig \
-"
+SRC_URI = "git://github.com/beagleboard/linux.git;nobranch=1;tag=${LINUX_VERSION}"
+
+KCONFIG_MODE="--alldefconfig"
+
+COMPATIBLE_MACHINE = "smaai5-am335x"
