@@ -1,0 +1,35 @@
+From 01891ce973fd3cd04f1c7606b0d8c045a944d901 Mon Sep 17 00:00:00 2001
+From: Fabio Berton <fabio.berton@ossystems.com.br>
+Date: Mon, 27 Jul 2020 10:41:30 -0300
+Subject: [PATCH 2/2] Makefile: Use CC variable instead of call gcc directly
+Organization: O.S. Systems Software LTDA.
+
+Signed-off-by: Fabio Berton <fabio.berton@ossystems.com.br>
+---
+ Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 3ec7ba1..9a05f0c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,7 @@
+ 
+ DTC ?= dtc
+ CPP ?= cpp
++CC ?= gcc
+ DESTDIR ?=
+ 
+ DTCVERSION ?= $(shell $(DTC) --version | grep ^Version | sed 's/^.* //g')
+@@ -138,7 +139,7 @@ export quiet Q KBUILD_VERBOSE
+ 
+ all_%:
+ 	$(Q)$(MAKE) ARCH=$* all_arch
+-	gcc -o config-pin ./tools/pmunts_muntsos/config-pin.c
++	$(CC) -o config-pin ./tools/pmunts_muntsos/config-pin.c
+ 
+ clean_%:
+ 	$(Q)$(MAKE) ARCH=$* clean_arch
+-- 
+2.27.0
+
