@@ -1,0 +1,103 @@
+/dts-v1/;
+/plugin/;
+#include <imx7d-pinfunc.h>
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+/ {
+    compatible = "toradex,colibri-imx7";
+    fragment@0 {
+        target = <&i2c4>;
+        __overlay__ {
+            atmel_mxt_ts: atmel_mxt_ts@4a {
+                compatible = "atmel,maxtouch";
+                pinctrl-names = "default";
+                pinctrl-0 = <&pinctrl_gpiotouch>;
+                reg = <0x4a>;
+                interrupt-parent = <&gpio1>;
+                interrupts = <1 IRQ_TYPE_EDGE_RISING>;
+                reset-gpios = <&gpio5 16 GPIO_ACTIVE_HIGH>;
+                status = "okay";
+            };
+        };
+    };
+    fragment@1 {
+        target-path = "/panel-dpi";
+        __overlay__ {
+            status = "okay";
+            width-mm = <154>;
+            height-mm = <86>;
+            panel-timing {
+                clock-frequency = <33000000>;
+                hactive = <800>;
+                vactive = <480>;
+                hsync-len = <20>;
+                hfront-porch = <60>;
+                hback-porch = <12>;
+                vsync-len = <5>;
+                vfront-porch = <60>;
+                vback-porch = <0>;
+            };
+        };
+    };
+    fragment@2 {
+        target-path = "/backlight";
+        __overlay__ {
+            pwms = <&pwm4 0 5000000 0>;
+            enable-gpios = <&gpio2 27 0>;
+        };
+    };
+    fragment@3 {
+        target = <&iomuxc>;
+        __overlay__ {
+            pinctrl_h_board: h-board {
+                fsl,pins = <
+                MX7D_PAD_LPSR_GPIO1_IO01__GPIO1_IO1 0x14
+                MX7D_PAD_SD2_DATA2__GPIO5_IO16      0x14
+                >;
+            };
+        };
+    };
+    fragment@4 {
+        target-path = "/gpio-keys";
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+    fragment@5 {
+        target = <&iomuxc>;
+        __overlay__{
+            pinctrl-0 = <&pinctrl_gpio2 &pinctrl_gpio3 &pinctrl_gpio4 &pinctrl_gpio7 &pinctrl_usbc_det>;
+        };
+    };
+    fragment@6 {
+        target = <&uart3>;
+        __overlay__ {
+            status = "okay";
+            linux,rs485-enabled-at-boot-time;
+            rs485-rts-active-high;
+            rs485-rx-during-tx;
+            rts-gpios = <&gpio5 15 0>;
+        };
+    };
+    fragment@7 {
+        target = <&pwm2>;
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+    fragment@8 {
+        target = <&pwm3>;
+        __overlay__ {
+            status = "disabled";
+        };
+    };
+    fragment@9 {
+        target = <&i2c4>;
+        __overlay__ {
+            rtc: pcf85263@51 {
+                compatible = "nxp,pcf85263";
+                reg = <0x51>;
+            };
+        };
+    };
+};
