@@ -5,7 +5,20 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit packagegroup
 
-RDEPENDS_${PN} += " \
+PROVIDES = "${PACKAGES}"
+
+PACKAGES = "\
+    packagegroup-smaai5 \
+    packagegroup-smaai5-modules \
+"
+
+RDEPENDS_packagegroup-smaai5 = "\
+    smaai5-base \
+    smaai5-updatehub-device-attributes \
+    connman-client \
+"
+
+RDEPENDS_packagegroup-smaai5-modules = "\
     adc \
     airflow \
     alarm \
@@ -41,7 +54,4 @@ RDEPENDS_${PN} += " \
     updatebystick \
     watcher \
     web \
-    \
-    smaai5-udev-extraconf \
-    smaai5-updatehub-device-attributes \
 "

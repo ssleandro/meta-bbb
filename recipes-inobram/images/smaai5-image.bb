@@ -11,20 +11,9 @@ BAD_RECOMMENDATIONS += " \
 "
 
 CORE_IMAGE_EXTRA_INSTALL += " \
-    smaai5-base \
+    packagegroup-inobram-base \
     packagegroup-smaai5 \
-    \
-    bash \
-    connman-client \
-    git \
-    htop \
-    less \
-    python3-speedtest-cli \
-    sudo \
-    systemd-analyze \
-    packagegroup-shellhub-runtime \
-    \
-    updatehub-ctl \
+    packagegroup-smaai5-modules \
 "
 
 SMAAI5_INOBRAM_PASSWORD = "\$1\$HFywRhHs\$hIAml7WzX1NqRTfUN7Yop/"
