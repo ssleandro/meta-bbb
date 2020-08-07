@@ -13,7 +13,6 @@ RDEPENDS_${PN} += " \
     co2 \
     curtain \
     disarm \
-    display \
     exhauster \
     heater \
     hooter \
@@ -34,6 +33,7 @@ RDEPENDS_${PN} += " \
     scale \
     sensation \
     setting \
+    smaai5-display \
     statistic \
     stick \
     synchronizer \

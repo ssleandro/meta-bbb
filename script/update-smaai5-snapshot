@@ -57,7 +57,7 @@ record_srcrev     buzzer            buzzer             master
 record_srcrev     co2               co2                master
 record_srcrev     curtain           curtain            master
 record_srcrev     disarm            disarm             master
-record_srcrev     display           display            master
+record_srcrev     smaai5-display    display            master
 record_srcrev     exhauster         exhauster          master
 record_srcrev     heater            heater             master
 record_srcrev     hooter            hooter             master
