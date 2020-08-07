@@ -2,13 +2,12 @@ require inobram.inc
 
 SRCBRANCH = "ambientte_1.0.x"
 
-SYSTEMD_PACKAGES += "${PN}-function"
-SYSTEMD_SERVICE_${PN}-function = "${PN}-function.service"
+SYSTEMD_PACKAGES += "${PN}-manager"
+SYSTEMD_SERVICE_${PN}-manager = "${PN}-manager.service"
 
-PACKAGES += "${PN}-function"
-FILES_${PN}-function += "${systemd_system_unitdir}/${PN}-function-control.socket"
+PACKAGES += "${PN}-manager"
 
 RDEPENDS_${PN} += " \
-    ${PN}-function \
+    ${PN}-manager \
     python3-pyserial \
 "
