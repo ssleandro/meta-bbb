@@ -1,4 +1,4 @@
-require recipes-smaai5/images/smaai5-image.bb
+require smaai5-image.bb
 
 IMAGE_FEATURES += "package-management"
 
