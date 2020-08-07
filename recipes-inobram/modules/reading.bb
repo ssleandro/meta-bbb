@@ -1,4 +1,4 @@
-require smaai5.inc
+require inobram.inc
 
 RDEPENDS_${PN} += " \
    python3-datetime \

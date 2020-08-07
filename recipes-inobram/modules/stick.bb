@@ -1,4 +1,4 @@
-require smaai5.inc
+require inobram.inc
 
 SRC_URI += " \
     file://99-stick.rules \

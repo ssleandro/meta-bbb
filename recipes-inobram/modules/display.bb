@@ -1,4 +1,4 @@
-require smaai5.inc
+require inobram.inc
 
 SYSTEMD_SERVICE_${PN} = "${PN}.timer"
 

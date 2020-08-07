@@ -1,4 +1,4 @@
-require smaai5.inc
+require inobram.inc
 
 SYSTEMD_PACKAGES += "${PN}-manager"
 SYSTEMD_SERVICE_${PN}-manager = "${PN}-manager.service"
