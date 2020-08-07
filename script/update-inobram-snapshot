@@ -7,9 +7,9 @@ if (( $# != 1 )); then
     echoerr "
 Usage:
 
-  update-smaai5-snapshot BASEDIR
+  update-inobram-snapshot BASEDIR
 
-try './scripts/update-smaai5-snapshot .'
+try './scripts/update-inobram-snapshot .'
 "
 	exit -1
 fi
@@ -27,7 +27,7 @@ record_srcrev() {
     recipe=$1
     repo=$2
     branch=$3
-    output=$base/conf/smaai5-srcrev.conf
+    output=$base/conf/inobram-srcrev.conf
     srcrev=`get_srcrev $repo $branch`
 
 	echoerr "updating recipe $recipe to use srcrev $srcrev"
@@ -35,7 +35,7 @@ record_srcrev() {
 }
 
 commit_srcrev() {
-	output=$base/conf/smaai5-srcrev.conf
+	output=$base/conf/inobram-srcrev.conf
 
 	stanza=""
 	while read -r line; do
@@ -47,7 +47,7 @@ commit_srcrev() {
 
 base=$1
 
-echo "" > $base/conf/smaai5-srcrev.conf
+echo "" > $base/conf/inobram-srcrev.conf
 
 #    cmd          recipe            repository         branch
 record_srcrev     adc               adc                master
@@ -85,6 +85,6 @@ record_srcrev     updatebystick     updatebystick      master
 record_srcrev     web               web                master
 record_srcrev     watcher           watcher            master
 
-sed -i '1{/^$/d}' $base/conf/smaai5-srcrev.conf
+sed -i '1{/^$/d}' $base/conf/inobram-srcrev.conf
 
 commit_srcrev
