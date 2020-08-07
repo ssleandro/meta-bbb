@@ -1,5 +1,7 @@
 require inobram.inc
 
+SRCBRANCH = "ambientte_1.0.x"
+
 SYSTEMD_PACKAGES += "${PN}-function"
 SYSTEMD_SERVICE_${PN}-function = "${PN}-function.service"
 
