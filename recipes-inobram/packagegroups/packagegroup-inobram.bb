@@ -19,6 +19,7 @@ RDEPENDS_packagegroup-inobram-base = "\
     less \
     packagegroup-shellhub-runtime \
     python3-speedtest-cli \
+    redis \
     sudo \
     updatehub-ctl \
 "
