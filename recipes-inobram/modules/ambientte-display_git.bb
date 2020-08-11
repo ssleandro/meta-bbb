@@ -3,8 +3,7 @@ LICENSE = "CLOSED"
 
 DEPENDS = "qtbase qtquickcontrols2"
 
-SRCREV = "8e4959bda4c91879c04cbaa730f2b9aaa08d835a"
-SRCBRANCH = "wip/yocto"
+SRCBRANCH = "master"
 SRC_URI = "git://git@bitbucket.org/inobram/display_qt.git;branch=${SRCBRANCH};protocol=ssh"
 
 S = "${WORKDIR}/git"
