@@ -10,4 +10,5 @@ PACKAGES += "${PN}-manager"
 RDEPENDS_${PN} += " \
     ${PN}-manager \
     python3-pyserial \
+    python3-sqlite3 \
 "
