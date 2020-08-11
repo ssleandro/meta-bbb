@@ -14,4 +14,5 @@ PACKAGES += "${PN}-manager"
 
 RDEPENDS_${PN} += " \
     ${PN}-manager \
+    python3-wrapt \
 "
