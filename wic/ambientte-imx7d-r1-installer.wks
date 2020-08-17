@@ -1,0 +1,4 @@
+part /boot --source bootimg-partition --ondisk mmcblk --fstype=ext4 --label boot --active --align 4096 --fixed-size 5M --extra-space 0
+part / --source rootfs --ondisk mmcblk --fstype=ext4 --label root --align 4096
+
+bootloader --ptable msdos
