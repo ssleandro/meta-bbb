@@ -1,9 +1,9 @@
 [Unit]
-Description=SMAAI5 Installer
+Description=Inobram Installer
 After=local-fs.target
 
 [Service]
-ExecStart=/usr/bin/smaai5-installer
+ExecStart=/usr/bin/inobram-installer
 
 [Install]
 WantedBy=multi-user.target

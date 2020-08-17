@@ -1,0 +1,30 @@
+#!/bin/sh
+# -*- shell-script -*-
+set -e
+
+EMMC="/dev/mmcblk1"
+EMMC_UBOOT="mmcblk1boot0"
+UBOOT_BINARY="u-boot.imx"
+
+die() {
+    while true; do
+        sleep 1
+    done
+}
+
+
+run_install() {
+    cd /installer-data || die
+    if [ ! -e "$EMMC" ]; then
+        echo "ERROR! eMMC device not found!!!"
+        die
+    fi
+
+    echo 0 > /sys/block/"$EMMC_UBOOT"/force_ro
+    dd if=/dev/zero of=/dev/"$EMMC_UBOOT" bs=1k count=10
+    dd if="$UBOOT_BINARY" of=/dev/"$EMMC_UBOOT" bs=1024 seek=1 || die
+    bmaptool copy img.wic.xz "$EMMC" || die
+    sync && poweroff
+}
+
+run_install || die

@@ -1,9 +1,9 @@
-SUMMARY = "SMAAI5 eMMC installer"
+SUMMARY = "Inobram eMMC installer"
 LICENSE = "CLOSED"
 
-SRC_URI = " \
-    file://${PN} \
-    file://${PN}.service \
+SRC_URI = "\
+    file://${BPN} \
+    file://${BPN}.service \
 "
 
 S = "${WORKDIR}/${PN}-${PV}"
@@ -17,7 +17,7 @@ do_install() {
     install -Dm 0644 ${WORKDIR}/${PN}.service ${D}${systemd_unitdir}/system/${PN}.service
 }
 
-RDEPENDS_${PN} += " \
+RDEPENDS_${PN} += "\
     bmap-tools \
     xz \
 "
