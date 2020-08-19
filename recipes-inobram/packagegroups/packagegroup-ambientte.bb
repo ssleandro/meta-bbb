@@ -12,7 +12,9 @@ PACKAGES = "\
     packagegroup-ambientte-modules \
 "
 
-RDEPENDS_packagegroup-ambientte = ""
+RDEPENDS_packagegroup-ambientte = "\
+    networkmanager \
+"
 
 RDEPENDS_packagegroup-ambientte-modules = "\
     ambientte-display \
