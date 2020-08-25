@@ -21,7 +21,7 @@ run_install() {
     fi
 
     echo 0 > /sys/block/"$EMMC_UBOOT"/force_ro
-    dd if=/dev/zero of=/dev/"$EMMC_UBOOT" bs=1k count=10
+    dd if=/dev/zero of=/dev/"$EMMC_UBOOT" bs=1k count=2k
     dd if="$UBOOT_BINARY" of=/dev/"$EMMC_UBOOT" bs=1024 seek=1 || die
     bmaptool copy img.wic.xz "$EMMC" || die
     sync && poweroff
