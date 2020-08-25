@@ -24,7 +24,7 @@ run_install() {
     dd if=/dev/zero of=/dev/"$EMMC_UBOOT" bs=1k count=2k
     dd if="$UBOOT_BINARY" of=/dev/"$EMMC_UBOOT" bs=1024 seek=1 || die
     bmaptool copy img.wic.xz "$EMMC" || die
-    sync && poweroff
+    sync && halt
 }
 
 run_install || die
