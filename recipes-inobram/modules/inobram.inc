@@ -1,8 +1,7 @@
 LICENSE = "CLOSED"
 
-MODULE_PN = "${BPN}"
 SRCBRANCH ?= "master"
-SRC_URI = "git://git@bitbucket.org/inobram/${MODULE_PN}.git;branch=${SRCBRANCH};protocol=ssh"
+SRC_URI = "git://git@bitbucket.org/inobram/${BPN}.git;branch=${SRCBRANCH};protocol=ssh"
 
 S = "${WORKDIR}/git"
 
@@ -11,16 +10,16 @@ PKGV = "${GITPKGVTAG}"
 
 inherit gitpkgv systemd
 
-SYSTEMD_SERVICE_${PN} = "${MODULE_PN}.service"
+SYSTEMD_SERVICE_${PN} = "${PN}.service"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install() {
-    cp -r ${S}/${MODULE_PN}/* ${D}/
+    cp -r ${S}/${BPN}/*  ${D}/
     rm -rf ${D}${localstatedir}/run
-    rm -rf ${D}${libdir}/${MODULE_PN}/entrypoint.sh
-    rm -rf ${D}${libdir}/${MODULE_PN}/Dockerfile
+    rm -rf ${D}${libdir}/${PN}/entrypoint.sh
+    rm -rf ${D}${libdir}/${PN}/Dockerfile
     find ${D} -type f -a ! -type l -exec chmod -R 0644 {} +
     find ${D} -type f -a ! -type l -a '(' -name '*.sh' -o -name '*.py' ')' \
          -exec chmod -R 0755 {} +
@@ -31,7 +30,7 @@ do_install() {
 }
 
 pkg_postinst_ontarget_${PN}() {
-    dbscript=`echo /usr/lib/${MODULE_PN}/db.py | sed 's,-,_,g'`
+    dbscript=`echo /usr/lib/${PN}/db.py | sed 's,-,_,g'`
 
     if [ -n "$D" ] && [ -e "$D$dbscript" ]; then
         exit 1
@@ -43,11 +42,11 @@ pkg_postinst_ontarget_${PN}() {
 }
 
 FILES_${PN} += " \
-    ${systemd_system_unitdir}/${MODULE_PN}-control.socket \
-    ${systemd_system_unitdir}/${MODULE_PN}.service \
+    ${systemd_system_unitdir}/${PN}-control.socket \
+    ${systemd_system_unitdir}/${PN}.service \
 "
 
-FILES_${PN}-manager += "${systemd_system_unitdir}/${MODULE_PN}-manager-control.socket"
+FILES_${PN}-manager += "${systemd_system_unitdir}/${PN}-manager-control.socket"
 
 RDEPENDS_${PN} += " \
     python3-core \
