@@ -20,4 +20,5 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     ambientte-display \
     api-display \
     probe \
+    relay8r \
 "
