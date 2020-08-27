@@ -19,6 +19,7 @@ RDEPENDS_packagegroup-ambientte = "\
 RDEPENDS_packagegroup-ambientte-modules = "\
     ambientte-display \
     api-display \
+    batch \
     probe \
     relay8r \
 "
