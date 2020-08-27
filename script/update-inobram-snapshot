@@ -59,7 +59,6 @@ record_srcrev     buzzer            buzzer             ambientte_1.0.x
 record_srcrev     co2               co2                ambientte_1.0.x
 record_srcrev     curtain           curtain            ambientte_1.0.x
 record_srcrev     disarm            disarm             master
-record_srcrev     smaai5-display    display            master
 record_srcrev     exhauster         exhauster          ambientte_1.0.x
 record_srcrev     heater            heater             ambientte_1.0.x
 record_srcrev     hooter            hooter             ambientte_1.0.x
@@ -80,13 +79,14 @@ record_srcrev     rtc               rtc                ambientte_1.0.x
 record_srcrev     scale             scale              master
 record_srcrev     sensation         sensation          master
 record_srcrev     setting           setting            ambientte_1.0.x
+record_srcrev     smaai5-display    display            master
 record_srcrev     statistic         statistic          master
 record_srcrev     stick             stick              master
 record_srcrev     synchronizer      synchronizer       master
 record_srcrev     timer             timer              master
 record_srcrev     updatebystick     updatebystick      master
-record_srcrev     web               web                master
 record_srcrev     watcher           watcher            master
+record_srcrev     web               web                master
 
 sed -i '1{/^$/d}' $base/conf/inobram-srcrev.conf
 
