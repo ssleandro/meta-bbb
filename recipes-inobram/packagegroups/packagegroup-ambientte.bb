@@ -22,4 +22,5 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     batch \
     probe \
     relay8r \
+    settings \
 "
