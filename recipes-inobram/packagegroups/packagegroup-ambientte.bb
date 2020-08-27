@@ -17,6 +17,7 @@ RDEPENDS_packagegroup-ambientte = "\
 "
 
 RDEPENDS_packagegroup-ambientte-modules = "\
+    alarm \
     ambientte-display \
     api-display \
     batch \
