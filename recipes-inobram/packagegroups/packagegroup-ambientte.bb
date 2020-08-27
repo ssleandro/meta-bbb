@@ -21,6 +21,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     ambientte-display \
     api-display \
     batch \
+    co2 \
     heater \
     hour \
     hooter \
