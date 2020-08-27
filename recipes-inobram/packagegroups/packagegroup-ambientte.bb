@@ -21,6 +21,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     ambientte-display \
     api-display \
     batch \
+    heater \
     humidifier \
     probe \
     relay8r \
