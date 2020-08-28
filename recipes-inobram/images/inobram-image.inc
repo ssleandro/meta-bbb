@@ -13,6 +13,7 @@ EXTRA_USERS_PARAMS = " \
 
 BAD_RECOMMENDATIONS += "\
     busybox-syslog \
+    rng-tools \
 "
 
 CORE_IMAGE_EXTRA_INSTALL = "\
