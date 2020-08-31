@@ -23,10 +23,11 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     batch \
     co2 \
     heater \
-    hour \
     hooter \
+    hour \
     humidifier \
     probe \
     relay8r \
     settings \
+    web-n-pro \
 "

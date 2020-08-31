@@ -90,6 +90,7 @@ record_srcrev     timer             timer              master
 record_srcrev     updatebystick     updatebystick      master
 record_srcrev     watcher           watcher            master
 record_srcrev     web               web                master
+record_srcrev     web-n-pro         web-n-pro          master
 
 sed -i '1{/^$/d}' $base/conf/inobram-srcrev.conf
 
