@@ -17,9 +17,4 @@ do_install() {
     install -Dm 0644 ${WORKDIR}/systemd-udevd.service ${D}${sysconfdir}/systemd/system/systemd-udevd.service
 }
 
-RDEPENDS_${PN} += " \
-    connman \
-    zram-init \
-"
-
 ALLOW_EMPTY_${PN} = "1"

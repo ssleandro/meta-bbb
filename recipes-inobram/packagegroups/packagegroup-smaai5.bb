@@ -13,9 +13,11 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-smaai5 = "\
+    connman \
+    connman-client \
     smaai5-base \
     smaai5-updatehub-device-attributes \
-    connman-client \
+    zram-init \
 "
 
 RDEPENDS_packagegroup-smaai5-modules = "\
