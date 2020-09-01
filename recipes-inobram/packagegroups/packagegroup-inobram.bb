@@ -18,10 +18,13 @@ RDEPENDS_packagegroup-inobram-base = "\
     htop \
     less \
     packagegroup-shellhub-runtime \
+    procps \
     python3-speedtest-cli \
     redis \
     sqlite3 \
     sudo \
+    tzdata-americas \
+    tzdata-core \
     updatehub-ctl \
 "
 
