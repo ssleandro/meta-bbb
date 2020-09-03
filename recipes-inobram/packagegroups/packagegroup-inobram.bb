@@ -30,6 +30,7 @@ RDEPENDS_packagegroup-inobram-base = "\
 
 RDEPENDS_packagegroup-inobram-development = "\
     curl \
+    gdbserver \
     git \
     make \
     nano \
