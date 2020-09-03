@@ -29,6 +29,7 @@ RDEPENDS_packagegroup-inobram-base = "\
 "
 
 RDEPENDS_packagegroup-inobram-development = "\
+    curl \
     git \
     make \
     nano \
