@@ -7,6 +7,7 @@ SRCBRANCH = "toradex_5.4.y"
 LINUX_VERSION = "5.4.54"
 SRC_URI = "\
     git://git.toradex.com/linux-toradex.git;protocol=https;branch=${SRCBRANCH} \
+    file://0001-gpio-poweroff-Ignore-if-pm_power_off-is-already-defi.patch \
     file://defconfig \
 "
 
