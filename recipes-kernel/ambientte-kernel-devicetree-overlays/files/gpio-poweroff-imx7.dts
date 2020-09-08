@@ -1,0 +1,27 @@
+/dts-v1/;
+/plugin/;
+#include <imx7d-pinfunc.h>
+#include <dt-bindings/gpio/gpio.h>
+/ {
+    compatible = "toradex,colibri-imx7";
+    fragment@0 {
+        target-path = "/";
+        __overlay__ {
+            gpio_poweroff: poweroff {
+                pinctrl-names = "default";
+                pinctrl-0 = <&pinctrl_poweroff>;
+                compatible = "gpio-poweroff";
+                gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
+            };
+        };
+    };
+
+    fragment@1 {
+        target = <&iomuxc>;
+        __overlay__ {
+            pinctrl_poweroff: poweroffgrp {
+                fsl,pins = <MX7D_PAD_SD2_CMD__GPIO5_IO13    0x1b0b0 >;
+            };
+        };
+    };
+};

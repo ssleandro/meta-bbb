@@ -1,7 +1,10 @@
 SUMMARY = "Ambientte device tree overlay for H-Board-Colibri"
 LICENSE = "CLOSED"
 
-SRC_URI = "file://h-board-nvd-imx7.dts"
+SRC_URI = "\
+   file://h-board-nvd-imx7.dts \
+   file://gpio-poweroff-imx7.dts \
+"
 
 inherit devicetree
 
