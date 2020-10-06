@@ -1,7 +1,7 @@
 SUMMARY = "Ambientte Qt5 Display"
 LICENSE = "CLOSED"
 
-DEPENDS = "qtbase qtquickcontrols2"
+DEPENDS = "qtbase qtxmlpatterns qtquickcontrols2"
 
 SRCBRANCH = "master"
 SRC_URI = "git://git@bitbucket.org/inobram/display_qt.git;branch=${SRCBRANCH};protocol=ssh"
@@ -23,5 +23,6 @@ RDEPENDS_${PN} += "\
     qtgraphicaleffects-qmlplugins \
     qtquickcontrols2-qmlplugins \
     qtquickcontrols-qmlplugins \
+    qtxmlpatterns-qmlplugins \
     ttf-roboto \
 "
