@@ -71,6 +71,7 @@ record_srcrev     lot               lot                master
 record_srcrev     modbusfans        modbusfans         master
 record_srcrev     nebulizer         nebulizer          master
 record_srcrev     ngrok             ngrok              ambientte_1.0.x
+record_srcrev     power-manager     power-manager      master
 record_srcrev     poweroff          poweroff           ambientte_1.0.x
 record_srcrev     probe             probe              ambientte_1.0.x
 record_srcrev     reading           reading            ambientte_1.0.x
