@@ -30,6 +30,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     hour \
     humidifier \
     inlet \
+    module4to20 \
     power-manager \
     probe \
     relay8r \
