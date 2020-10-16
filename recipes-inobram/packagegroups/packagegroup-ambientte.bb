@@ -17,15 +17,19 @@ RDEPENDS_packagegroup-ambientte = "\
 "
 
 RDEPENDS_packagegroup-ambientte-modules = "\
+    airflow \
     alarm \
     ambientte-display \
     api-display \
     batch \
     co2 \
+    curtain \
+    exhauster \
     heater \
     hooter \
     hour \
     humidifier \
+    inlet \
     probe \
     relay8r \
     settings \
