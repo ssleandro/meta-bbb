@@ -5,3 +5,5 @@ require inobram-setuptools.inc
 inobram_install() {
     install -Dm 0644 ${S}/etc/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
 }
+
+RDEPENDS_${PN} += "python3-smbus2"
