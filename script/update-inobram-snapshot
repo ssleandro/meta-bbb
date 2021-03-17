@@ -90,7 +90,7 @@ record_srcrev     smaai5-display    display            master
 record_srcrev     statistic         statistic          master
 record_srcrev     stick             stick              master
 record_srcrev     synchronizer      synchronizer       master
-record_srcrev     timer             timer              master
+record_srcrev     timer             timer              ambientte_1.0.x
 record_srcrev     updatebystick     updatebystick      master
 record_srcrev     watcher           watcher            master
 record_srcrev     web               web                master

@@ -38,5 +38,6 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     relay8r \
     rtc \
     settings \
+    timer \
     web-n-pro \
 "
