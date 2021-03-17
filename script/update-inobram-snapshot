@@ -50,6 +50,7 @@ base=$1
 echo "" > $base/conf/inobram-srcrev.conf
 
 #    cmd          recipe            repository         branch
+record_srcrev     actuators         actuators          master
 record_srcrev     adc               adc                master
 record_srcrev     airflow           airflow            ambientte_1.0.x
 record_srcrev     alarm             alarm              ambientte_1.0.x
