@@ -23,6 +23,7 @@ RDEPENDS_${PN} += "\
     qtgraphicaleffects-qmlplugins \
     qtquickcontrols2-qmlplugins \
     qtquickcontrols-qmlplugins \
+    qtsvg \
     qtxmlpatterns-qmlplugins \
     ttf-roboto \
 "
