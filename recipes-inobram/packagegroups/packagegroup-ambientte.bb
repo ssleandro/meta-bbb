@@ -19,8 +19,8 @@ RDEPENDS_packagegroup-ambientte = "\
 RDEPENDS_packagegroup-ambientte-modules = "\
     airflow \
     alarm \
+    ambientte-api \
     ambientte-display \
-    api-display \
     batch \
     co2 \
     curtain \

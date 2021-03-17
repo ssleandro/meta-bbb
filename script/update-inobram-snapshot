@@ -53,8 +53,8 @@ echo "" > $base/conf/inobram-srcrev.conf
 record_srcrev     adc               adc                master
 record_srcrev     airflow           airflow            ambientte_1.0.x
 record_srcrev     alarm             alarm              ambientte_1.0.x
+record_srcrev     ambientte-api     ambientte-api      master
 record_srcrev     ambientte-display display_QT         master
-record_srcrev     api-display       api-display        master
 record_srcrev     batch             batch              master
 record_srcrev     buzzer            buzzer             ambientte_1.0.x
 record_srcrev     co2               co2                ambientte_1.0.x
