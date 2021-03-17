@@ -26,6 +26,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     co2 \
     curtain \
     exhauster \
+    flush \
     heater \
     hooter \
     hour \

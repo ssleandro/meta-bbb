@@ -62,6 +62,7 @@ record_srcrev     co2               co2                ambientte_1.0.x
 record_srcrev     curtain           curtain            ambientte_1.0.x
 record_srcrev     disarm            disarm             master
 record_srcrev     exhauster         exhauster          ambientte_1.0.x
+record_srcrev     flush             flush              master
 record_srcrev     heater            heater             ambientte_1.0.x
 record_srcrev     hooter            hooter             ambientte_1.0.x
 record_srcrev     hour              hour               ambientte_1.0.x
