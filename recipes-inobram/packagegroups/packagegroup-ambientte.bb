@@ -36,6 +36,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     power-manager \
     probe \
     relay8r \
+    rtc \
     settings \
     web-n-pro \
 "
