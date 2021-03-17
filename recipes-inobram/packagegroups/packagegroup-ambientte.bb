@@ -25,6 +25,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     batch \
     co2 \
     curtain \
+    device-manager \
     exhauster \
     flush \
     heater \

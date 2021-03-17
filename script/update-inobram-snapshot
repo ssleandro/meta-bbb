@@ -60,6 +60,7 @@ record_srcrev     batch             batch              master
 record_srcrev     buzzer            buzzer             ambientte_1.0.x
 record_srcrev     co2               co2                ambientte_1.0.x
 record_srcrev     curtain           curtain            ambientte_1.0.x
+record_srcrev     device-manager    device-manager     master
 record_srcrev     disarm            disarm             master
 record_srcrev     exhauster         exhauster          ambientte_1.0.x
 record_srcrev     flush             flush              master
