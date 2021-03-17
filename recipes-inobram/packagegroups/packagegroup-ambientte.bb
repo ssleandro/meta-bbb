@@ -39,5 +39,6 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     rtc \
     settings \
     timer \
+    tunneldoor \
     web-n-pro \
 "
