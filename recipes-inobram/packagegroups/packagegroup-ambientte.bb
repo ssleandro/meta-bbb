@@ -13,7 +13,7 @@ PACKAGES = "\
 "
 
 RDEPENDS_packagegroup-ambientte = "\
-    networkmanager \
+    networkmanager-nmcli \
 "
 
 RDEPENDS_packagegroup-ambientte-modules = "\
