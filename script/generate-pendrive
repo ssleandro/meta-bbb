@@ -1,0 +1,51 @@
+#!/bin/sh
+
+TMPDIR="/tmp/pendrive_inobram"
+TIMESTAMP=$(date +"%Y_%m_%d_%H_%M")
+
+usage() {
+    cat << EOF
+    ./generate-pendrive URL RELEASE_TAG
+
+    URL argument example:
+
+    https://ci.ossystems.com.br/f/cdc7e2c9c065578665fc7b788ec466a8c378c17d1f3ea0dd47098bbd2eb6ba1f
+
+EOF
+}
+
+die() {
+    rm -rf "$TMPDIR" && echo -e "\nError: USB installer generation failed!" && exit 1
+}
+
+# Check if the dependencies are installed
+check_dep() {
+    if [ ! $(which axel 2>/dev/null) ]; then
+        echo "Please, install axel tool" && exit 1
+    fi
+}
+check_dep
+
+# Create and cd to tmpdir
+mkdir -p "$TMPDIR" && cd "$TMPDIR" || die
+
+[ $# != 2 ] && die
+
+# Download files
+echo -e "\nDownloading files..."
+axel "$1"/images/smaai5-image-smaai5-am335x.wic.xz -qo image.wic.xz || die
+axel "$1"/images/smaai5-image-smaai5-am335x.wic.bmap -qo image.wic.bmap || die
+axel "$1"/images/smaai5-image-smaai5-am335x.uhupkg -qo "$2".uhupkg || die
+axel "$1"/images/smaai5-image-2gb-smaai5-am335x.wic.xz -qo image-2gb.wic.xz || die
+axel "$1"/images/smaai5-image-2gb-smaai5-am335x.wic.bmap -qo image-2gb.wic.bmap || die
+
+# Download smaai5_v5.x.tar.gz
+axel https://persistence-ci.s3-us-west-2.amazonaws.com/extra-files/inobram/smaai5_v5.x.tar.gz -qo smaai5_v"$2".tar.gz || die
+
+echo "Creating tarball..."
+tar fcz pendrive_inobram_"$2"_"$TIMESTAMP".tar.gz * || die
+cp pendrive_inobram_"$2"_"$TIMESTAMP".tar.gz ~/ || die
+rm -rf "$TMPDIR"
+
+echo -e  "\nUSB installer created with success!!! \n
+The generated pendrive_inobram_$2_$TIMESTAMP.tar.gz file is in your home directory"
