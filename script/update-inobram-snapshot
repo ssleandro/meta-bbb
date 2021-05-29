@@ -88,7 +88,7 @@ record_srcrev     sensation         sensation          master
 record_srcrev     setting           setting            ambientte_1.0.x
 record_srcrev     settings          settings           master
 record_srcrev     smaai5-display    display            master
-record_srcrev     statistic         statistic          master
+record_srcrev     statistic         statistic          ambientte_1.0.x
 record_srcrev     stick             stick              master
 record_srcrev     synchronizer      synchronizer       master
 record_srcrev     timer             timer              ambientte_1.0.x
