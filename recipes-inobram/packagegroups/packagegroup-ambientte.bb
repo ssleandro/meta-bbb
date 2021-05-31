@@ -40,6 +40,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     reading \
     relay8r \
     rtc \
+    services-supervisor \
     settings \
     statistic \
     timer \

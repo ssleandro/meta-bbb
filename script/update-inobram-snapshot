@@ -85,6 +85,7 @@ record_srcrev     report-alarm      report-alarm       master
 record_srcrev     rtc               rtc                ambientte_1.0.x
 record_srcrev     scale             scale              master
 record_srcrev     sensation         sensation          master
+record_srcrev     services-supervisor services-supervisor master
 record_srcrev     setting           setting            ambientte_1.0.x
 record_srcrev     settings          settings           master
 record_srcrev     smaai5-display    display            master
