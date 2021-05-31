@@ -34,11 +34,14 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     humidifier \
     inlet \
     module4to20 \
+    ngrok \
     power-manager \
     probe \
+    reading \
     relay8r \
     rtc \
     settings \
+    statistic \
     timer \
     tunneldoor \
     web-n-pro \
