@@ -1,9 +1,9 @@
 [Unit]
-Description=Generate SMAAI5 cloud keys
+Description=Generate Inobram cloud keys
 RequiresMountsFor=/data
 
 [Service]
-ExecStart=/usr/bin/smaai5-generate-cloud-keys
+ExecStart=/usr/bin/inobram-generate-cloud-keys
 Type=oneshot
 
 [Install]
