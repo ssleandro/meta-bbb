@@ -45,5 +45,6 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     statistic \
     timer \
     tunneldoor \
+    watcher \
     web-n-pro \
 "
