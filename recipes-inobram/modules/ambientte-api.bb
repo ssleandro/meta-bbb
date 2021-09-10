@@ -8,5 +8,6 @@ inobram_install() {
 
 RDEPENDS_${PN} += "\
     python3-flask \
+    python3-gunicorn \
     python3-json \
 "
