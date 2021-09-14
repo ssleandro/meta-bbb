@@ -17,6 +17,7 @@ do_install() {
     rm -rf ${D}
     install -d ${D}${localstatedir}/www/html
     cp --no-preserve=ownership --recursive ${S}/dist/* ${D}${localstatedir}/www/html/
+    install -Dm 0644 ${S}/utils/etc/nginx/sites-enabled/default_server ${D}${sysconfdir}/nginx/sites-enabled/default_server
 }
 
 RDEPENDS_${PN} += "nginx"
