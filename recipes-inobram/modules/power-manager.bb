@@ -1,7 +1,7 @@
 require inobram-setuptools.inc
 
 # Disable in development stage
-SYSTEMD_AUTO_ENABLE_${PN} = "disable"
+SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 
 # As Power Manager doesn't have PN-control.socket we need to override the
 # inobram_install task from inobram-setuptools.inc
