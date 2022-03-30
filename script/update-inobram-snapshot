@@ -98,6 +98,7 @@ record_srcrev     updatebystick     updatebystick      master
 record_srcrev     watcher           watcher            master
 record_srcrev     web               web                master
 record_srcrev     web-n-pro         web-n-pro          master
+record_srcrev     ambientte-display-validation         htmg-test-screen          master
 
 sed -i '1{/^$/d}' $base/conf/inobram-srcrev.conf
 
