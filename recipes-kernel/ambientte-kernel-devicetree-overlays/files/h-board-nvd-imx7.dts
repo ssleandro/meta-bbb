@@ -16,7 +16,7 @@
                 interrupt-parent = <&gpio1>;
                 interrupts = <1 IRQ_TYPE_EDGE_RISING>;
                 reset-gpios = <&gpio5 16 GPIO_ACTIVE_HIGH>;
-                status = "okay";
+                status = "disabled";
             };
         };
     };
@@ -110,7 +110,7 @@
                 interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
                 irq-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
                 reset-gpios = <&gpio5 16 GPIO_ACTIVE_HIGH>;
-                status = "okay";
+                status = "disabled";
             };
         };
     };
