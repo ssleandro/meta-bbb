@@ -33,6 +33,7 @@ RDEPENDS_packagegroup-smaai5-modules = "\
     hooter \
     hour \
     inlet \
+    inobramlibs \
     inverter \
     lot \
     modbusfans \
@@ -54,6 +55,8 @@ RDEPENDS_packagegroup-smaai5-modules = "\
     synchronizer \
     timer \
     updatebystick \
+    update-manager \
+    usb-manager \
     watcher \
     web \
 "
