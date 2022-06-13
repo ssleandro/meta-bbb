@@ -1,6 +1,8 @@
-require inobram.inc
+require inobram-setuptools.inc
 
-SYSTEMD_AUTO_ENABLE = "disable"
+SRCBRANCH = "ambientte_1.0.x"
+
+SYSTEMD_AUTO_ENABLE = "enable"
 
 RDEPENDS_${PN} += " \
     inobram-generate-cloud-keys \
