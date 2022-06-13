@@ -95,10 +95,13 @@ record_srcrev     synchronizer      synchronizer       master
 record_srcrev     timer             timer              ambientte_1.0.x
 record_srcrev     tunneldoor        tunneldoor         master
 record_srcrev     updatebystick     updatebystick      master
-record_srcrev     watcher           watcher            master
+record_srcrev     watcher           watcher            ambientte_1.0.x
 record_srcrev     web               web                master
 record_srcrev     web-n-pro         web-n-pro          master
+record_srcrev     inobramlibs       inobramlibs        master
+record_srcrev     usb-manager       usb-manager        master
 record_srcrev     ambientte-display-validation         htmg-test-screen          master
+record_srcrev     update-manager    update-manager     master
 
 sed -i '1{/^$/d}' $base/conf/inobram-srcrev.conf
 
