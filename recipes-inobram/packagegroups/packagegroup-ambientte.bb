@@ -33,6 +33,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     hour \
     humidifier \
     inlet \
+    inobramlibs \
     module4to20 \
     ngrok \
     power-manager \
@@ -45,6 +46,8 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     statistic \
     timer \
     tunneldoor \
+    update-manager \
+    usb-manager \
     watcher \
     web-n-pro \
 "
