@@ -13,4 +13,5 @@ RDEPENDS_${PN} = "\
     python3-gevent \
     python3-json \
     python3-redis \
+    python3-updatehub-agent-sdk \
 "
