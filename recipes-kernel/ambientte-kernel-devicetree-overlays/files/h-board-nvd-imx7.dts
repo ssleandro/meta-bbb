@@ -76,7 +76,7 @@
             linux,rs485-enabled-at-boot-time;
             rs485-rts-active-high;
             rs485-rx-during-tx;
-            rts-gpios = <&gpio5 15 0>;
+            rts-gpios = <&gpio3 24 0>;
         };
     };
     fragment@7 {
