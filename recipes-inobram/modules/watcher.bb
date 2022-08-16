@@ -1,6 +1,6 @@
 require inobram-setuptools.inc
 
-SRCBRANCH = "ambientte_1.0.x"
+SRCBRANCH = "master"
 
 SYSTEMD_AUTO_ENABLE = "enable"
 

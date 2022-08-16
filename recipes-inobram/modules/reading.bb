@@ -1,7 +1,7 @@
 require inobram-setuptools.inc
 require inobram-manager-setuptools.inc
 
-SRCBRANCH = "ambientte_1.0.x"
+SRCBRANCH = "master"
 
 RDEPENDS_${PN} += " \
    ${PYTHON_PN}-datetime \

@@ -1,6 +1,6 @@
 require inobram.inc
 
-SRCBRANCH = "ambientte_1.0.x"
+SRCBRANCH = "master"
 
 SYSTEMD_SERVICE_${PN} = "${PN}.timer"
 

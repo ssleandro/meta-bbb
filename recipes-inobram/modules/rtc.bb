@@ -1,6 +1,6 @@
 require inobram-setuptools.inc
 
-SRCBRANCH = "ambientte_1.0.x"
+SRCBRANCH = "master"
 
 # As rtcg doesn't have PN-control.socket we need to override the
 # inobram_install task from inobram-setuptools.inc
