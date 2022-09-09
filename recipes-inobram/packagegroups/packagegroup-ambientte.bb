@@ -38,6 +38,7 @@ RDEPENDS_packagegroup-ambientte-modules = "\
     ngrok \
     power-manager \
     probe \
+    product-manager \
     reading \
     relay8r \
     rtc \
