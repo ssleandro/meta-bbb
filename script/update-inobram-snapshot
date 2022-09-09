@@ -78,6 +78,7 @@ record_srcrev     ngrok             ngrok              master
 record_srcrev     power-manager     power-manager      master
 record_srcrev     poweroff          poweroff           master
 record_srcrev     probe             probe              master
+record_srcrev     product-manager   product-manager    master
 record_srcrev     reading           reading            master
 record_srcrev     relay             relay              master
 record_srcrev     relay8r           relay8r            master
