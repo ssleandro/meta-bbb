@@ -2,7 +2,7 @@ require inobram-setuptools.inc
 
 SRCBRANCH = "master"
 
-SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_AUTO_ENABLE = "disable"
 
 RDEPENDS_${PN} += " \
     inobram-generate-cloud-keys \
