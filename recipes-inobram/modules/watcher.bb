@@ -2,7 +2,11 @@ require inobram-setuptools.inc
 
 SRCBRANCH = "master"
 
-SYSTEMD_AUTO_ENABLE = "disable"
+SYSTEMD_SERVICE_${PN} = "${PN}.timer"
+
+inobram_install:append(){
+    install -Dm 0644 ${S}/etc/${PN}.timer ${D}${systemd_system_unitdir}/${PN}.timer
+}
 
 RDEPENDS_${PN} += " \
     inobram-generate-cloud-keys \
@@ -25,3 +29,5 @@ RDEPENDS_${PN} += " \
     python3-six \
     python3-zopeinterface \
 "
+
+FILES_${PN} += "${systemd_system_unitdir}/${PN}.service"
