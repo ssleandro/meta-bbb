@@ -3,7 +3,7 @@ require inobram-manager-setuptools.inc
 
 SRCBRANCH = "master"
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     python3-datetime \
     python3-db \
 "

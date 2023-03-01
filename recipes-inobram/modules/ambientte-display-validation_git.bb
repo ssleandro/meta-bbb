@@ -10,9 +10,9 @@ S = "${WORKDIR}/git"
 
 inherit qmake5 systemd
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service"
+SYSTEMD_SERVICE:${PN} = "${PN}.service"
 
-SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 do_install() {
     install -Dm 0755 ${B}/HtmgTestScreen ${D}${bindir}/HtmgTestScreen
@@ -22,7 +22,7 @@ do_install() {
 
 SYSTEMD_DEFAULT_TARGET = "graphical.target"
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     qtdeclarative-qmlplugins \
     qtgraphicaleffects-qmlplugins \
     qtquickcontrols2-qmlplugins \

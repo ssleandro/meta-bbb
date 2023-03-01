@@ -16,11 +16,11 @@ inherit pypi setuptools3
 # https://github.com/adafruit/adafruit-beaglebone-io-python/issues/308
 CFLAGS += "-Wno-cast-function-type -Wno-format-truncation -Wno-sizeof-pointer-memaccess -Wno-stringop-overflow"
 
-do_install_append() {
+do_install:append() {
     install -d ${D}/${nonarch_base_libdir}/firmware
     cp ${S}/overlays/*.dtbo ${D}${nonarch_base_libdir}/firmware/
 }
 
-FILES_${PN} += "${nonarch_base_libdir}/firmware/*"
+FILES:${PN} += "${nonarch_base_libdir}/firmware/*"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

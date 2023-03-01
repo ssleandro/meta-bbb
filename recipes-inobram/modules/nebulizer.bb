@@ -1,11 +1,11 @@
 require inobram.inc
 
 SYSTEMD_PACKAGES += "${PN}-manager"
-SYSTEMD_SERVICE_${PN}-manager = "${PN}-manager.service"
+SYSTEMD_SERVICE:${PN}-manager = "${PN}-manager.service"
 
 PACKAGES += "${PN}-manager"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PN}-manager \
     python3-datetime \
 "

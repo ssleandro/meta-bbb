@@ -1,6 +1,6 @@
 require inobram-setuptools.inc
 
-SYSTEMD_SERVICE_${PN} = "\
+SYSTEMD_SERVICE:${PN} = "\
     usb-manager-insert.service \
     usb-manager-remove.service \
 "
@@ -15,7 +15,7 @@ inobram_install() {
     install -Dm 0755 ${S}/scripts/sh/disconnected.sh ${D}${bindir}/disconnected.sh
 }
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
     python3-datetime \
     python3-gevent \
     python3-json \

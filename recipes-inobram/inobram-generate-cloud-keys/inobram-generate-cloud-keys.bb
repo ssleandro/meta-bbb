@@ -11,11 +11,11 @@ inherit systemd
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service"
+SYSTEMD_SERVICE:${PN} = "${PN}.service"
 
 do_install() {
     install -Dm 0755 ${WORKDIR}/${PN} ${D}${bindir}/${PN}
     install -Dm 0644 ${WORKDIR}/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
 }
 
-RDEPENDS_${PN} += "openssl-bin"
+RDEPENDS:${PN} += "openssl-bin"

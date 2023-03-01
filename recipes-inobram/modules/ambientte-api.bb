@@ -6,7 +6,7 @@ inobram_install() {
     install -Dm 0644 ${S}/etc/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
 }
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     python3-flask \
     python3-gunicorn \
     python3-json \

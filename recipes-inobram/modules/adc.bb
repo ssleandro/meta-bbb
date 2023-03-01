@@ -1,6 +1,5 @@
 require inobram.inc
 
-RDEPENDS_${PN} += " \
-    python3-adafruit-bbio \
+RDEPENDS:${PN} += " \
     python3-db \
 "

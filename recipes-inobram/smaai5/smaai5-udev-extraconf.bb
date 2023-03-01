@@ -15,5 +15,5 @@ do_install() {
     install -Dm 0644 ${WORKDIR}/60-omap-tty.rules ${D}${nonarch_base_libdir}/udev/rules.d/60-omap-tty.rules
 }
 
-FILES_${PN} = "${nonarch_base_libdir}/udev"
-RDEPENDS_${PN} = "udev"
+FILES:${PN} = "${nonarch_base_libdir}/udev"
+RDEPENDS:${PN} = "udev"

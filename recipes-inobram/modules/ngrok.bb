@@ -2,10 +2,10 @@ require inobram-setuptools.inc
 
 SRCBRANCH = "master"
 
-SYSTEMD_SERVICE_${PN} = "${PN}.timer"
+SYSTEMD_SERVICE:${PN} = "${PN}.timer"
 
 SYSTEMD_PACKAGES += "${PN}m"
-SYSTEMD_SERVICE_${PN}m = "${PN}m.timer"
+SYSTEMD_SERVICE:${PN}m = "${PN}m.timer"
 
 # Override inobram_install task as ngrok doesn't have PN-control.socket and
 # install .timer units.
@@ -17,11 +17,11 @@ inobram_install() {
 }
 
 PACKAGES += "${PN}m"
-FILES_${PN}m += "${systemd_system_unitdir}/${PN}m.service"
+FILES:${PN}m += "${systemd_system_unitdir}/${PN}m.service"
 
-FILES_${PN} += "${systemd_system_unitdir}/${PN}.service"
+FILES:${PN} += "${systemd_system_unitdir}/${PN}.service"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PN}m \
     ${PYTHON_PN}-httplib2 \
     ${PYTHON_PN}-io \

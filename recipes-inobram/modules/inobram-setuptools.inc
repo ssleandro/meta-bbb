@@ -7,7 +7,7 @@ S = "${WORKDIR}/git"
 
 inherit setuptools3 systemd
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service"
+SYSTEMD_SERVICE:${PN} = "${PN}.service"
 
 # Use a custom install function to allow recipes to modify the default behavior
 inobram_install() {
@@ -16,9 +16,9 @@ inobram_install() {
 }
 do_install[postfuncs] += "inobram_install"
 
-FILES_${PN} += "${systemd_system_unitdir}/${PN}-control.socket"
+FILES:${PN} += "${systemd_system_unitdir}/${PN}-control.socket"
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     python3-gevent \
     python3-redis \
 "

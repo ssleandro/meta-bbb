@@ -12,11 +12,11 @@ PACKAGES = "\
     packagegroup-ambientte-modules \
 "
 
-RDEPENDS_packagegroup-ambientte = "\
+RDEPENDS:packagegroup-ambientte = "\
     networkmanager-nmcli \
 "
 
-RDEPENDS_packagegroup-ambientte-modules = "\
+RDEPENDS:packagegroup-ambientte-modules = "\
     actuators \
     airflow \
     alarm \

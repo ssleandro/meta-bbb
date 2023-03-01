@@ -1,6 +1,6 @@
 require inobram-setuptools.inc
 require inobram-manager-setuptools.inc
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     python3-requests \
 "

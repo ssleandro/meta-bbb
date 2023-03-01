@@ -17,7 +17,7 @@ do_install() {
     install -Dm 0755 ${S}/repo ${D}${bindir}/repo
 }
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     git \
     gnupg \
     ${PYTHON_PN}-ctypes \

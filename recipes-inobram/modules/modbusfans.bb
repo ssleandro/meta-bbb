@@ -1,5 +1,5 @@
 require inobram.inc
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     python3-pyserial \
 "

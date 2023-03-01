@@ -26,6 +26,7 @@
             status = "okay";
             width-mm = <154>;
             height-mm = <86>;
+            data-mapping = "bgr666";
             panel-timing {
                 clock-frequency = <33000000>;
                 hactive = <800>;
@@ -42,6 +43,7 @@
     fragment@2 {
         target-path = "/backlight";
         __overlay__ {
+            status = "okay";
             pwms = <&pwm4 0 5000000 0>;
             enable-gpios = <&gpio2 27 0>;
         };
@@ -55,6 +57,12 @@
                 MX7D_PAD_SD2_DATA2__GPIO5_IO16      0x14
                 >;
             };
+	    pinctrl_gpiotouch: touchgpios {
+		fsl,pins = <
+		MX7D_PAD_GPIO1_IO09__GPIO1_IO9          0x74
+		MX7D_PAD_GPIO1_IO10__GPIO1_IO10         0x14
+		>;
+	    };
         };
     };
     fragment@4 {
@@ -112,6 +120,12 @@
                 reset-gpios = <&gpio5 16 GPIO_ACTIVE_HIGH>;
                 status = "disabled";
             };
+        };
+    };
+    fragment@11 {
+        target = <&lcdif>;
+        __overlay__ {
+            status = "okay";
         };
     };
 };

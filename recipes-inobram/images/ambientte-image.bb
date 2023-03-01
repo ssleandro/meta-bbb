@@ -4,8 +4,8 @@ DESCRIPTION = "Ambientte Image"
 
 inherit populate_sdk_qt5
 
-TOOLCHAIN_TARGET_TASK_remove = "packagegroup-qt5-toolchain-target"
-TOOLCHAIN_TARGET_TASK_append = " \
+TOOLCHAIN_TARGET_TASK:remove = "packagegroup-qt5-toolchain-target"
+TOOLCHAIN_TARGET_TASK:append = " \
     packagegroup-core-standalone-sdk-target \
     qtbase-dev \
     qtbase-mkspecs \

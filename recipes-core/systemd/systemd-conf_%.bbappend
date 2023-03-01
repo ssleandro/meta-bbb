@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += "\
     file://journald-size.conf \
@@ -10,7 +10,7 @@ do_install() {
     install -Dm 0644 ${WORKDIR}/watchdog.conf ${D}${sysconfdir}/systemd/system.conf.d/watchdog.conf
 }
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${sysconfdir}/systemd/journald.conf.d/size.conf \
     ${sysconfdir}/systemd/system.conf.d/watchdog.conf \
 "

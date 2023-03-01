@@ -12,7 +12,7 @@ LINUX_VERSION = "4.14.108-ti-r136"
 KBRANCH = "${LINUX_VERSION}"
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-SRC_URI = "git://github.com/beagleboard/linux.git;nobranch=1;tag=${LINUX_VERSION}"
+SRC_URI = "git://github.com/beagleboard/linux.git;nobranch=1;tag=${LINUX_VERSION};protocol=https"
 
 KCONFIG_MODE="--alldefconfig"
 

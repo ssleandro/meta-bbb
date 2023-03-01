@@ -1,8 +1,8 @@
 require inobram.inc
 
-SYSTEMD_SERVICE_${PN} = "${PN}.timer"
+SYSTEMD_SERVICE:${PN} = "${PN}.timer"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     python3-crypt \
     python3-datetime \
     python3-flask \

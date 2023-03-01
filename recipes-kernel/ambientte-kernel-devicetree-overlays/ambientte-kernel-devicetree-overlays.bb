@@ -8,6 +8,6 @@ SRC_URI = "\
 
 inherit devicetree
 
-RPROVIDES_${PN} += "kernel-devicetree-overlays"
+RPROVIDES:${PN} += "kernel-devicetree-overlays"
 
 COMPATIBLE_MACHINE = "ambientte-imx7d-r1"

@@ -14,6 +14,6 @@ do_install() {
     install -Dm 0755 ${WORKDIR}/board_revision ${D}/${datadir}/updatehub/device-attributes.d/board_revision
 }
 
-FILES_${PN} = "${datadir}/updatehub"
+FILES:${PN} = "${datadir}/updatehub"
 
-RDEPENDS_${PN} += "u-boot-fw-utils"
+RDEPENDS:${PN} += "u-boot-fw-utils"

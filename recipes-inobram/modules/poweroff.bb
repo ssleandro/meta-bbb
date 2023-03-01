@@ -2,8 +2,8 @@ require inobram.inc
 
 SRCBRANCH = "master"
 
-SYSTEMD_SERVICE_${PN} = "${PN}.timer"
+SYSTEMD_SERVICE:${PN} = "${PN}.timer"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     python3-datetime \
 "

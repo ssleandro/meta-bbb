@@ -12,7 +12,7 @@ PACKAGES = "\
     packagegroup-inobram-development \
 "
 
-RDEPENDS_packagegroup-inobram-base = "\
+RDEPENDS:packagegroup-inobram-base = "\
     bash \
     git \
     htop \
@@ -28,7 +28,7 @@ RDEPENDS_packagegroup-inobram-base = "\
     updatehub-ctl \
 "
 
-RDEPENDS_packagegroup-inobram-development = "\
+RDEPENDS:packagegroup-inobram-development = "\
     curl \
     gdbserver \
     git \

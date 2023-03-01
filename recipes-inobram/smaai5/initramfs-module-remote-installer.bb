@@ -9,11 +9,11 @@ do_install() {
     install -Dm 0755 ${WORKDIR}/smaai5 ${D}/init.d/89-smaai5
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     /init.d/89-smaai5 \
 "
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     bmap-tools \
     wget \
     xz \

@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 DEPENDS = "nodejs-native"
 
 SRCREV = "bdc801fc09ac095b13231d575421dd091392ff55"
-SRC_URI = "git://git@bitbucket.org/inobram/web-n-pro.git;protocol=ssh"
+SRC_URI = "git://git@bitbucket.org/inobram/web-n-pro.git;protocol=ssh;branch=master"
 
 S = "${WORKDIR}/git"
 
@@ -20,4 +20,4 @@ do_install() {
     install -Dm 0644 ${S}/utils/etc/nginx/sites-enabled/default_server ${D}${sysconfdir}/nginx/sites-enabled/default_server
 }
 
-RDEPENDS_${PN} += "nginx"
+RDEPENDS:${PN} += "nginx"

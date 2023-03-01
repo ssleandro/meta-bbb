@@ -12,7 +12,7 @@ PACKAGES = "\
     packagegroup-smaai5-modules \
 "
 
-RDEPENDS_packagegroup-smaai5 = "\
+RDEPENDS:packagegroup-smaai5 = "\
     connman \
     connman-client \
     smaai5-base \
@@ -20,7 +20,7 @@ RDEPENDS_packagegroup-smaai5 = "\
     zram-init \
 "
 
-RDEPENDS_packagegroup-smaai5-modules = "\
+RDEPENDS:packagegroup-smaai5-modules = "\
     adc \
     airflow \
     alarm \

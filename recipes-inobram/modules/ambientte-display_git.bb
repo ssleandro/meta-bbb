@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 inherit qmake5 systemd
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service"
+SYSTEMD_SERVICE:${PN} = "${PN}.service"
 
 do_install() {
     install -Dm 0755 ${B}/display_QT ${D}${bindir}/${PN}
@@ -18,7 +18,7 @@ do_install() {
     install -Dm 0644 ${S}/systemd/${PN}.default ${D}${sysconfdir}/default/${PN}
 }
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     qtdeclarative-qmlplugins \
     qtgraphicaleffects-qmlplugins \
     qtquickcontrols2-qmlplugins \

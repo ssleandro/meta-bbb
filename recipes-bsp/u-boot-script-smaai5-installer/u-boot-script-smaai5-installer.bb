@@ -7,4 +7,4 @@ do_install() {
     install -Dm 0644 ${WORKDIR}/uEnv.txt ${D}/boot/uEnv.txt
 }
 
-FILES_${PN} += "/boot/uEnv.txt"
+FILES:${PN} += "/boot/uEnv.txt"

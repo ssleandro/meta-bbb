@@ -10,7 +10,7 @@ PKGV = "${GITPKGVTAG}"
 
 inherit gitpkgv systemd
 
-SYSTEMD_SERVICE_${PN} = "${PN}.service"
+SYSTEMD_SERVICE:${PN} = "${PN}.service"
 
 do_configure[noexec] = "1"
 do_compile[noexec] = "1"
@@ -29,7 +29,7 @@ do_install() {
     done
 }
 
-pkg_postinst_ontarget_${PN}() {
+pkg_postinst_ontarget:${PN}() {
     dbscript=`echo /usr/lib/${PN}/db.py | sed 's,-,_,g'`
 
     if [ -n "$D" ] && [ -e "$D$dbscript" ]; then
@@ -41,14 +41,14 @@ pkg_postinst_ontarget_${PN}() {
     fi
 }
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${systemd_system_unitdir}/${PN}-control.socket \
     ${systemd_system_unitdir}/${PN}.service \
 "
 
-FILES_${PN}-manager += "${systemd_system_unitdir}/${PN}-manager-control.socket"
+FILES:${PN}-manager += "${systemd_system_unitdir}/${PN}-manager-control.socket"
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     python3-core \
     python3-distutils \
     python3-gevent \

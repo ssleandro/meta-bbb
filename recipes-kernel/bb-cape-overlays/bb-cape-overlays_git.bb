@@ -9,7 +9,7 @@ DEPENDS = "dtc-native"
 
 SRCREV = "7e8a169d1985f77451ee54233d95e870ad9b011a"
 SRC_URI = " \
-    git://github.com/beagleboard/bb.org-overlays.git;branch=legacy-dtc-1.4.4 \
+    git://github.com/beagleboard/bb.org-overlays.git;branch=legacy-dtc-1.4.4;protocol=https \
     file://0001-univ-bbb-Exx-00A0-Remove-spi0-and-spi1-devices.patch \
     file://0002-Makefile-Use-CC-variable-instead-of-call-gcc-directl.patch \
 "
@@ -28,6 +28,6 @@ do_install() {
     oe_runmake install DESTDIR=${D}
 }
 
-FILES_${PN} =+ " \
+FILES:${PN} =+ " \
     ${base_libdir}/firmware \
 "
