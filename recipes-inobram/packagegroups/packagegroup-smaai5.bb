@@ -51,10 +51,8 @@ RDEPENDS_packagegroup-smaai5-modules = "\
     setting \
     smaai5-display \
     statistic \
-    stick \
     synchronizer \
     timer \
-    updatebystick \
     update-manager \
     usb-manager \
     watcher \
