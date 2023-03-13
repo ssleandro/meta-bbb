@@ -10,4 +10,6 @@ RDEPENDS:${PN} += "\
     python3-flask \
     python3-gunicorn \
     python3-json \
+    python3-pyjwt \
+    python3-werkzeug \
 "

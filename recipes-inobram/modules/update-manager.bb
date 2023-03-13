@@ -8,10 +8,8 @@ inobram_install() {
     install -Dm 0644 ${S}/etc/${PN}.service ${D}${systemd_system_unitdir}/${PN}.service
 }
 
-RDEPENDS:${PN} = "\
+RDEPENDS:${PN} += " \
     python3-datetime \
-    python3-gevent \
     python3-json \
-    python3-redis \
     python3-updatehub-agent-sdk \
 "

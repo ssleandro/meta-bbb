@@ -21,4 +21,5 @@ FILES:${PN} += "${systemd_system_unitdir}/${PN}-control.socket"
 RDEPENDS:${PN} += "\
     python3-gevent \
     python3-redis \
+    python3-requests \
 "

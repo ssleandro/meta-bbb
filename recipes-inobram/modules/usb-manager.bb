@@ -17,7 +17,5 @@ inobram_install() {
 
 RDEPENDS:${PN} = "\
     python3-datetime \
-    python3-gevent \
     python3-json \
-    python3-redis \
 "
