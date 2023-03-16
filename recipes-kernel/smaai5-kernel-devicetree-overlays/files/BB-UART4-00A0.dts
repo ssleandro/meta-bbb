@@ -1,0 +1,18 @@
+/*
+ * Copyright (C) 2013 CircuitCo
+ *
+ * Virtual cape for UART4 on connector pins P9.13 P9.11
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/pinctrl/am33xx.h>
+
+/ {
+    compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+};

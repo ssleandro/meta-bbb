@@ -3,5 +3,5 @@ load_fdt=load mmc 0:1 ${fdtaddr} /boot/${fdtfile}; load mmc 0:1 ${rdaddr} /lib/f
 fdt resize ${fdt_buffer}; fdt apply ${rdaddr}; fdt resize ${fdt_buffer}; \
 load mmc 0:1 ${rdaddr} /lib/firmware/BB-BONE-eMMC1-01-00A0.dtbo; fdt addr ${fdtaddr}; \
 fdt resize ${fdt_buffer}; fdt apply ${rdaddr}; fdt resize ${fdt_buffer};
-mmc_args=setenv bootargs console=${console} root=/dev/mmcblk0p1 rootfstype=ext4
+mmc_args=setenv bootargs console=${console} root=/dev/mmcblk0p1 rootwait rw rootfstype=ext4
 bootcmd=run load_image; run load_fdt; run mmc_args; bootz ${loadaddr} - ${fdtaddr}

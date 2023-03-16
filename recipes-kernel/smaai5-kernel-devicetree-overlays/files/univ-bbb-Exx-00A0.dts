@@ -1,0 +1,160 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/am33xx.h>
+
+/ {
+    compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+};
+
+&epwmss1 {
+    status = "okay";
+};
+
+&ecap1 {
+    status = "okay";
+};
+
+&ehrpwm1 {
+    status = "okay";
+    compatible = "ti,am33xx-ehrpwm";
+    pinctrl-names = "default";
+    pinctrl-0 = <&ehrpwm1_pin>;
+};
+
+&eqep1 {
+    status = "okay";
+};
+
+&epwmss2 {
+    status = "okay";
+};
+
+&ecap2 {
+    status = "okay";
+};
+
+&ehrpwm2 {
+    status = "okay";
+    compatible = "ti,am33xx-ehrpwm";
+    pinctrl-names = "default";
+    pinctrl-0 = <&ehrpwm2_pin>;
+};
+
+&eqep2 {
+    status = "okay";
+};
+
+&mmc2 {
+	vmmc-supply = <&vmmcsd_fixed>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&emmc_pins>;
+	bus-width = <8>;
+	status = "okay";
+};
+
+&spi0 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&spi0_pins_s0>;
+
+    spidev@0 {
+        #address-cells = <1>;
+	    #size-cells = <0>;
+
+        compatible = "rohm,dh2228fv";
+        symlink = "spi/0.0";
+
+        spi-max-frequency = <16000000>;
+        reg = <0>;
+    };
+    spidev@1 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        compatible = "rohm,dh2228fv";
+        symlink = "spi/0.1";
+
+        spi-max-frequency = <16000000>;
+        reg = <1>;
+    };
+};
+
+&tscadc {
+    status = "okay";
+
+    adc {
+        ti,adc-channels = <0 1 2 3 4 5 6 7>;
+        ti,chan-step-opendelay = <152 152 152 152 152 152 152 152>;
+        ti,chan-step-avg = <16 16 16 16 16 16 16 16>;
+        ti,chan-step-sampledelay = <0 0 0 0 0 0 0 0>;
+    };
+};
+
+&uart1 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&uart1_pins>;
+};
+
+&uart4 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&uart4_pins>;
+};
+
+&am33xx_pinmux {
+    uart1_pins: uart1_pins {
+        pinctrl-single,pins = <
+            AM33XX_PADCONF(AM335X_PIN_UART1_RXD, PIN_INPUT_PULLUP, MUX_MODE0)
+            AM33XX_PADCONF(AM335X_PIN_UART1_TXD, PIN_OUTPUT_PULLDOWN, MUX_MODE0)
+        >;
+    };
+
+    uart4_pins: uart4_pins {
+        pinctrl-single,pins = <
+            AM33XX_PADCONF(AM335X_PIN_GPMC_WPN, PIN_OUTPUT_PULLDOWN, MUX_MODE6)	/* P9_13 gpmc_wpn.uart4_txd_mux2 */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_WAIT0, PIN_INPUT_PULLUP, MUX_MODE6)	/* P9_13 gpmc_wait0.uart4_rxd_mux2 */
+        >;
+    };
+
+    ehrpwm1_pin: ehrpwm1_pin {
+        pinctrl-single,pins = <
+            AM33XX_PADCONF(AM335X_PIN_GPMC_A2, PIN_OUTPUT, MUX_MODE6)
+        >;
+    };
+
+    ehrpwm2_pin: ehrpwm2_pin {
+        pinctrl-single,pins = <
+            AM33XX_PADCONF(AM335X_PIN_GPMC_A3, PIN_OUTPUT, MUX_MODE6)
+        >;
+    };
+
+    emmc_pins: pinmux_emmc_pins {
+        pinctrl-single,pins = <
+            AM33XX_IOPAD(0x880, PIN_INPUT_PULLUP | MUX_MODE2) /* gpmc_csn1.mmc1_clk */
+            AM33XX_IOPAD(0x884, PIN_INPUT_PULLUP | MUX_MODE2) /* gpmc_csn2.mmc1_cmd */
+            AM33XX_IOPAD(0x800, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad0.mmc1_dat0 */
+            AM33XX_IOPAD(0x804, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad1.mmc1_dat1 */
+            AM33XX_IOPAD(0x808, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad2.mmc1_dat2 */
+            AM33XX_IOPAD(0x80c, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad3.mmc1_dat3 */
+            AM33XX_IOPAD(0x810, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad4.mmc1_dat4 */
+            AM33XX_IOPAD(0x814, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad5.mmc1_dat5 */
+            AM33XX_IOPAD(0x818, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad6.mmc1_dat6 */
+            AM33XX_IOPAD(0x81c, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad7.mmc1_dat7 */
+        >;
+    };
+
+    spi0_pins_s0: spi0_pins_s0 {
+        pinctrl-single,pins = <
+            AM33XX_PADCONF(AM335X_PIN_SPI0_CS0, PIN_INPUT, MUX_MODE0)
+            AM33XX_PADCONF(AM335X_PIN_SPI0_D0, PIN_INPUT, MUX_MODE0)
+            AM33XX_PADCONF(AM335X_PIN_SPI0_D1, PIN_INPUT, MUX_MODE0)
+            AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT, MUX_MODE0)
+        >;
+    };
+};
