@@ -83,7 +83,6 @@ record_srcrev     reading           reading            master
 record_srcrev     relay             relay              master
 record_srcrev     relay8r           relay8r            master
 record_srcrev     report-alarm      report-alarm       master
-record_srcrev     rtc               rtc                master
 record_srcrev     scale             scale              master
 record_srcrev     sensation         sensation          master
 record_srcrev     services-supervisor services-supervisor master

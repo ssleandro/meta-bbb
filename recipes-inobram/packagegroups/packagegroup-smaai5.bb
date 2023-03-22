@@ -45,7 +45,6 @@ RDEPENDS:packagegroup-smaai5-modules = "\
     redis \
     relay \
     report-alarm \
-    rtc \
     scale \
     sensation \
     setting \
