@@ -8,6 +8,7 @@ SRC_URI = "git://git@bitbucket.org/inobram/web-n-pro.git;protocol=ssh;branch=mas
 
 S = "${WORKDIR}/git"
 
+do_compile[network] = "1"
 do_compile() {
     npm install
     npm run build
