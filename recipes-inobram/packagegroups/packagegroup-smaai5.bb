@@ -15,6 +15,10 @@ PACKAGES = "\
 RDEPENDS:packagegroup-smaai5 = "\
     connman \
     connman-client \
+    libgpiod-python \
+    libiio-python3 \
+    python3-periphery \
+    python3-spidev \
     smaai5-base \
     smaai5-updatehub-device-attributes \
     zram-init \
@@ -24,6 +28,7 @@ RDEPENDS:packagegroup-smaai5-modules = "\
     adc \
     airflow \
     alarm \
+    batch \
     buzzer \
     co2 \
     curtain \
