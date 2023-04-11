@@ -1,9 +1,0 @@
-ENV{DEVTYPE}=="partition", \
-  ACTION=="add", \
-  KERNEL=="sd?1", \
-  RUN+="/usr/lib/stick/script/sh/stick-mount.sh"
-
-ENV{DEVTYPE}=="partition", \
-  ACTION=="remove", \
-  KERNEL=="sd*", \
-  RUN+="/usr/lib/stick/script/sh/stick-umount.sh"
