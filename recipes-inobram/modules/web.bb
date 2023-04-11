@@ -1,5 +1,7 @@
 require inobram.inc
 
+REPO_NAME = "web-smaai5"
+
 SYSTEMD_SERVICE:${PN} = "${PN}.timer"
 
 RDEPENDS:${PN} += " \

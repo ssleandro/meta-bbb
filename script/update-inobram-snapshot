@@ -94,7 +94,7 @@ record_srcrev     synchronizer      synchronizer       master
 record_srcrev     timer             timer              master
 record_srcrev     tunneldoor        tunneldoor         master
 record_srcrev     watcher           watcher            master
-record_srcrev     web               web                master
+record_srcrev     web               web-smaai5         master
 record_srcrev     web-n-pro         web-n-pro          master
 record_srcrev     inobramlibs       inobramlibs        master
 record_srcrev     usb-manager       usb-manager        master

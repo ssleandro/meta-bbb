@@ -1,7 +1,9 @@
 LICENSE = "CLOSED"
 
+REPO_NAME ?= "${BPN}"
+
 SRCBRANCH ?= "master"
-SRC_URI = "git://git@bitbucket.org/inobram/${BPN}.git;branch=${SRCBRANCH};protocol=ssh"
+SRC_URI = "git://git@bitbucket.org/inobram/${REPO_NAME}.git;branch=${SRCBRANCH};protocol=ssh"
 
 S = "${WORKDIR}/git"
 
@@ -54,3 +56,5 @@ RDEPENDS:${PN} += " \
     python3-gevent \
     python3-redis \
 "
+
+INSANE_SKIP:${PN} += "empty-dirs"
