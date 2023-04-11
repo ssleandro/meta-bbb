@@ -47,13 +47,10 @@ RDEPENDS:packagegroup-smaai5-modules = "\
     report-alarm \
     scale \
     sensation \
-    setting \
     smaai5-display \
     statistic \
-    synchronizer \
     timer \
     update-manager \
     usb-manager \
     watcher \
-    web \
 "
