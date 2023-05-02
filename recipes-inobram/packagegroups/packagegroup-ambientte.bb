@@ -20,7 +20,6 @@ RDEPENDS:packagegroup-ambientte-modules = "\
     actuators \
     airflow \
     alarm \
-    ambientte-api \
     ambientte-display \
     batch \
     co2 \
@@ -34,6 +33,7 @@ RDEPENDS:packagegroup-ambientte-modules = "\
     humidifier \
     inlet \
     inobramlibs \
+    interface-api \
     module4to20 \
     ngrok \
     power-manager \

@@ -39,6 +39,7 @@ RDEPENDS:packagegroup-smaai5-modules = "\
     hour \
     inlet \
     inobramlibs \
+    interface-api \
     inverter \
     lot \
     modbusfans \

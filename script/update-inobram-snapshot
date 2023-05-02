@@ -54,8 +54,8 @@ record_srcrev     actuators         actuators          master
 record_srcrev     adc               adc                master
 record_srcrev     airflow           airflow            master
 record_srcrev     alarm             alarm              master
-record_srcrev     ambientte-api     ambientte-api      master
 record_srcrev     ambientte-display display_QT         master
+record_srcrev     ambientte-display-validation         htmg-test-screen          master
 record_srcrev     batch             batch              master
 record_srcrev     buzzer            buzzer             master
 record_srcrev     co2               co2                master
@@ -69,7 +69,9 @@ record_srcrev     hooter            hooter             master
 record_srcrev     hour              hour               master
 record_srcrev     humidifier        humidifier         master
 record_srcrev     inlet             inlet              master
+record_srcrev     inobramlibs       inobramlibs        master
 record_srcrev     inverter          inverter           master
+record_srcrev     interface-api     interface-api      master
 record_srcrev     lot               lot                master
 record_srcrev     modbusfans        modbusfans         master
 record_srcrev     module4to20       module4to20        master
@@ -96,9 +98,7 @@ record_srcrev     tunneldoor        tunneldoor         master
 record_srcrev     watcher           watcher            master
 record_srcrev     web               web-smaai5         master
 record_srcrev     web-n-pro         web-n-pro          master
-record_srcrev     inobramlibs       inobramlibs        master
 record_srcrev     usb-manager       usb-manager        master
-record_srcrev     ambientte-display-validation         htmg-test-screen          master
 record_srcrev     update-manager    update-manager     master
 
 sed -i '1{/^$/d}' $base/conf/inobram-srcrev.conf
