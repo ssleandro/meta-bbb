@@ -88,11 +88,9 @@ record_srcrev     report-alarm      report-alarm       master
 record_srcrev     scale             scale              master
 record_srcrev     sensation         sensation          master
 record_srcrev     services-supervisor services-supervisor master
-record_srcrev     setting           setting            master
 record_srcrev     settings          settings           master
 record_srcrev     smaai5-display    display            master
 record_srcrev     statistic         statistic          master
-record_srcrev     synchronizer      synchronizer       master
 record_srcrev     timer             timer              master
 record_srcrev     tunneldoor        tunneldoor         master
 record_srcrev     watcher           watcher            master
