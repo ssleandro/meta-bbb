@@ -26,6 +26,7 @@ RDEPENDS:packagegroup-smaai5 = "\
 
 RDEPENDS:packagegroup-smaai5-modules = "\
     adc \
+    actuators \
     airflow \
     alarm \
     batch \
@@ -53,6 +54,7 @@ RDEPENDS:packagegroup-smaai5-modules = "\
     report-alarm \
     scale \
     sensation \
+    settings \
     smaai5-display \
     statistic \
     timer \
