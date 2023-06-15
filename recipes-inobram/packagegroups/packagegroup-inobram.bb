@@ -35,8 +35,10 @@ RDEPENDS:packagegroup-inobram-development = "\
     make \
     nano \
     openssh-sftp-server \
+    python3-pip \
     python3-profile \
     python3-repo \
+    python3-wheel \
     systemd-analyze \
     tree \
     vim \
