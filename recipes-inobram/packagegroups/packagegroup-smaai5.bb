@@ -19,7 +19,7 @@ RDEPENDS:packagegroup-smaai5 = "\
     libiio-python3 \
     python3-periphery \
     python3-spidev \
-    smaai5-base \
+    inobram-base \
     smaai5-updatehub-device-attributes \
     zram-init \
 "

@@ -1,4 +1,4 @@
-SUMMARY = "Base configuration for SMAAI5"
+SUMMARY = "Base configuration for Inobram Systems"
 
 LICENSE = "CLOSED"
 
