@@ -49,5 +49,5 @@ RDEPENDS:packagegroup-ambientte-modules = "\
     update-manager \
     usb-manager \
     watcher \
-    web-n-pro \
+    web \
 "

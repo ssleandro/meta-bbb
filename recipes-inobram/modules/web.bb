@@ -1,20 +1,23 @@
-require inobram.inc
+SUMMARY = "MVPX Web"
+LICENSE = "CLOSED"
 
-REPO_NAME = "web-smaai5"
+DEPENDS = "nodejs-native"
 
-SYSTEMD_SERVICE:${PN} = "${PN}.timer"
+SRC_URI = "git://git@bitbucket.org/inobram/web.git;protocol=ssh;branch=main"
 
-RDEPENDS:${PN} += " \
-    python3-crypt \
-    python3-datetime \
-    python3-flask \
-    python3-flask-jsonpify \
-    python3-flask-jwt \
-    python3-gunicorn \
-    python3-io \
-    python3-json \
-    python3-pyjwt \
-    python3-sqlite3 \
-    python3-werkzeug \
-    sqlite3 \
-"
+S = "${WORKDIR}/git"
+
+do_compile[network] = "1"
+do_compile() {
+    npm install
+    npm run build
+}
+
+do_install() {
+    rm -rf ${D}
+    install -d ${D}${localstatedir}/www/html
+    cp --no-preserve=ownership --recursive ${S}/dist/* ${D}${localstatedir}/www/html/
+    install -Dm 0644 ${S}/utils/etc/nginx/sites-enabled/default_server ${D}${sysconfdir}/nginx/sites-enabled/default_server
+}
+
+RDEPENDS:${PN} += "nginx"
