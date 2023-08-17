@@ -1,0 +1,53 @@
+From 54d35d7358934bf60e11dd661f7045002c546e5f Mon Sep 17 00:00:00 2001
+From: l <>
+Date: Wed, 23 Jan 2019 22:09:08 +0800
+Subject: [PATCH] Fix #1965: About gunicorn [CRITICAL] Worker Timeout
+
+---
+ gunicorn/arbiter.py           | 2 +-
+ gunicorn/workers/workertmp.py | 9 ++++-----
+ 2 files changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/gunicorn/arbiter.py b/gunicorn/arbiter.py
+index 7eaa2c177..f7f86f005 100644
+--- a/gunicorn/arbiter.py
++++ b/gunicorn/arbiter.py
+@@ -494,7 +494,7 @@ def murder_workers(self):
+         workers = list(self.WORKERS.items())
+         for (pid, worker) in workers:
+             try:
+-                if time.time() - worker.tmp.last_update() <= self.timeout:
++                if time.monotonic() - worker.tmp.last_update() <= self.timeout:
+                     continue
+             except (OSError, ValueError):
+                 continue
+diff --git a/gunicorn/workers/workertmp.py b/gunicorn/workers/workertmp.py
+index 22aaef34c..66defe946 100644
+--- a/gunicorn/workers/workertmp.py
++++ b/gunicorn/workers/workertmp.py
+@@ -4,6 +4,7 @@
+ # See the NOTICE for more information.
+ 
+ import os
++import time
+ import platform
+ import tempfile
+ 
+@@ -35,14 +36,12 @@ def __init__(self, cfg):
+             os.close(fd)
+             raise
+ 
+-        self.spinner = 0
+-
+     def notify(self):
+-        self.spinner = (self.spinner + 1) % 2
+-        os.fchmod(self._tmp.fileno(), self.spinner)
++        new_time = time.monotonic()
++        os.utime(self._tmp.name, (new_time, new_time))
+ 
+     def last_update(self):
+-        return os.fstat(self._tmp.fileno()).st_ctime
++        return os.fstat(self._tmp.fileno()).st_mtime
+ 
+     def fileno(self):
+         return self._tmp.fileno()

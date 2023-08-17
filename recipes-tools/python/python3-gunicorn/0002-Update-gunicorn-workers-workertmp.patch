@@ -1,0 +1,23 @@
+From 2a0433e7ed7185266f1430d774d15474562c0403 Mon Sep 17 00:00:00 2001
+From: Randall Leeds <randall@bleeds.info>
+Date: Sun, 17 Feb 2019 14:37:37 +0800
+Subject: [PATCH] Update gunicorn/workers/workertmp.py
+
+Co-Authored-By: skytoup <875766917@qq.com>
+---
+ gunicorn/workers/workertmp.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gunicorn/workers/workertmp.py b/gunicorn/workers/workertmp.py
+index 66defe946..604c759c0 100644
+--- a/gunicorn/workers/workertmp.py
++++ b/gunicorn/workers/workertmp.py
+@@ -38,7 +38,7 @@ def __init__(self, cfg):
+ 
+     def notify(self):
+         new_time = time.monotonic()
+-        os.utime(self._tmp.name, (new_time, new_time))
++        os.utime(self._tmp.fileno(), (new_time, new_time))
+ 
+     def last_update(self):
+         return os.fstat(self._tmp.fileno()).st_mtime
