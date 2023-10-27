@@ -39,6 +39,7 @@ RDEPENDS:packagegroup-inobram-development = "\
     python3-profile \
     python3-repo \
     python3-wheel \
+    socat \
     systemd-analyze \
     tree \
     vim \
