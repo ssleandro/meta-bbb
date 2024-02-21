@@ -4,9 +4,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
 
 DEPENDS:append = " lzop-native"
 
-SRCREV = "f5d73fd6e9f806fea129d0f26ca7c555d408ba09"
+SRCREV = "0dae0c54feafd327366df4eac6f8948d2b167afa"
 SRCBRANCH = "toradex_5.4.y"
-LINUX_VERSION = "5.4.193"
+LINUX_VERSION = "5.4.264"
 SRC_URI = "\
     git://git.toradex.com/linux-toradex.git;protocol=https;branch=${SRCBRANCH} \
     file://0001-gpio-poweroff-Ignore-if-pm_power_off-is-already-defi.patch \
