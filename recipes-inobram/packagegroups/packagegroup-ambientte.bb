@@ -40,6 +40,7 @@ RDEPENDS:packagegroup-ambientte-modules = "\
     product-manager \
     reading \
     relay8r \
+    scale \
     services-supervisor \
     settings \
     statistic \
