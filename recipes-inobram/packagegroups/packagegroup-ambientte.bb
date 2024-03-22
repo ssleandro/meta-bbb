@@ -35,7 +35,6 @@ RDEPENDS:packagegroup-ambientte-modules = "\
     inobramlibs \
     interface-api \
     module4to20 \
-    ngrok \
     power-manager \
     probe \
     product-manager \
