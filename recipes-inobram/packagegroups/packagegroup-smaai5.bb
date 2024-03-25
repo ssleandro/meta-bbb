@@ -21,7 +21,6 @@ RDEPENDS:packagegroup-smaai5 = "\
     python3-spidev \
     inobram-base \
     smaai5-updatehub-device-attributes \
-    zram-init \
 "
 
 RDEPENDS:packagegroup-smaai5-modules = "\

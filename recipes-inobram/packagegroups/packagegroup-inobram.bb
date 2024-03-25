@@ -26,6 +26,7 @@ RDEPENDS:packagegroup-inobram-base = "\
     tzdata-americas \
     tzdata-core \
     updatehub-ctl \
+    zram-init \
 "
 
 RDEPENDS:packagegroup-inobram-development = "\

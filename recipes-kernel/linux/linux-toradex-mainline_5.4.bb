@@ -13,6 +13,7 @@ SRC_URI = "\
     file://0001-arm-imx-add-smp-support-for-imx7d.patch \
     file://defconfig \
     file://disable-logotux.cfg \
+    file://enable-zram.cfg \
 "
 
 # Additional file deployed by recent mainline kernels
